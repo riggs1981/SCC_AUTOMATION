@@ -1,0 +1,148 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Gov UK Bank Hols API",
+    "description": "Gov UK Bank Holiday API - generates JSON from gov uk"
+  },
+  "host": "www.gov.uk",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/bank-holidays.json": {
+      "get": {
+        "summary": "GETUKBankhols",
+        "description": "GETUKBankhols",
+        "operationId": "GETUKBankhols",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "england-and-wales": {
+                  "type": "object",
+                  "properties": {
+                    "division": {
+                      "type": "string",
+                      "description": "division"
+                    },
+                    "events": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "title"
+                          },
+                          "date": {
+                            "type": "string",
+                            "description": "date"
+                          },
+                          "notes": {
+                            "type": "string",
+                            "description": "notes"
+                          },
+                          "bunting": {
+                            "type": "boolean",
+                            "description": "bunting"
+                          }
+                        }
+                      },
+                      "description": "events"
+                    }
+                  },
+                  "description": "england-and-wales"
+                },
+                "scotland": {
+                  "type": "object",
+                  "properties": {
+                    "division": {
+                      "type": "string",
+                      "description": "division"
+                    },
+                    "events": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "title"
+                          },
+                          "date": {
+                            "type": "string",
+                            "description": "date"
+                          },
+                          "notes": {
+                            "type": "string",
+                            "description": "notes"
+                          },
+                          "bunting": {
+                            "type": "boolean",
+                            "description": "bunting"
+                          }
+                        }
+                      },
+                      "description": "events"
+                    }
+                  },
+                  "description": "scotland"
+                },
+                "northern-ireland": {
+                  "type": "object",
+                  "properties": {
+                    "division": {
+                      "type": "string",
+                      "description": "division"
+                    },
+                    "events": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "title"
+                          },
+                          "date": {
+                            "type": "string",
+                            "description": "date"
+                          },
+                          "notes": {
+                            "type": "string",
+                            "description": "notes"
+                          },
+                          "bunting": {
+                            "type": "boolean",
+                            "description": "bunting"
+                          }
+                        }
+                      },
+                      "description": "events"
+                    }
+                  },
+                  "description": "northern-ireland"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}

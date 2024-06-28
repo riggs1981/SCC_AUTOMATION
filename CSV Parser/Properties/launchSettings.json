@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "CSV_Parser": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7023",
+      "launchBrowser": false
+    }
+  }
+}

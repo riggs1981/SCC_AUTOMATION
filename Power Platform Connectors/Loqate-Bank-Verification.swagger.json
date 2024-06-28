@@ -1,0 +1,253 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Loqate",
+    "contact": {}
+  },
+  "host": "api.addressy.com",
+  "basePath": "/BankAccountValidation/Interactive/Validate/v2.00",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/json3.ws": {
+      "post": {
+        "summary": "New Request",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "NewRequest",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "AccountNumber",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "SortCode",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "IsCorrect": {
+                        "type": "boolean",
+                        "description": "IsCorrect"
+                      },
+                      "IsDirectDebitCapable": {
+                        "type": "boolean",
+                        "description": "IsDirectDebitCapable"
+                      },
+                      "StatusInformation": {
+                        "type": "string",
+                        "description": "StatusInformation"
+                      },
+                      "CorrectedSortCode": {
+                        "type": "string",
+                        "description": "CorrectedSortCode"
+                      },
+                      "CorrectedAccountNumber": {
+                        "type": "string",
+                        "description": "CorrectedAccountNumber"
+                      },
+                      "IBAN": {
+                        "type": "string",
+                        "description": "IBAN"
+                      },
+                      "Bank": {
+                        "type": "string",
+                        "description": "Bank"
+                      },
+                      "BankBIC": {
+                        "type": "string",
+                        "description": "BankBIC"
+                      },
+                      "Branch": {
+                        "type": "string",
+                        "description": "Branch"
+                      },
+                      "BranchBIC": {
+                        "type": "string",
+                        "description": "BranchBIC"
+                      },
+                      "ContactAddressLine1": {
+                        "type": "string",
+                        "description": "ContactAddressLine1"
+                      },
+                      "ContactAddressLine2": {
+                        "type": "string",
+                        "description": "ContactAddressLine2"
+                      },
+                      "ContactPostTown": {
+                        "type": "string",
+                        "description": "ContactPostTown"
+                      },
+                      "ContactPostcode": {
+                        "type": "string",
+                        "description": "ContactPostcode"
+                      },
+                      "ContactPhone": {
+                        "type": "string",
+                        "description": "ContactPhone"
+                      },
+                      "ContactFax": {
+                        "type": "string",
+                        "description": "ContactFax"
+                      },
+                      "FasterPaymentsSupported": {
+                        "type": "boolean",
+                        "description": "FasterPaymentsSupported"
+                      },
+                      "CHAPSSupported": {
+                        "type": "boolean",
+                        "description": "CHAPSSupported"
+                      }
+                    }
+                  },
+                  "description": "Items"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "IsCorrect": {
+                        "type": "boolean",
+                        "description": "IsCorrect"
+                      },
+                      "IsDirectDebitCapable": {
+                        "type": "boolean",
+                        "description": "IsDirectDebitCapable"
+                      },
+                      "StatusInformation": {
+                        "type": "string",
+                        "description": "StatusInformation"
+                      },
+                      "CorrectedSortCode": {
+                        "type": "string",
+                        "description": "CorrectedSortCode"
+                      },
+                      "CorrectedAccountNumber": {
+                        "type": "string",
+                        "description": "CorrectedAccountNumber"
+                      },
+                      "IBAN": {
+                        "type": "string",
+                        "description": "IBAN"
+                      },
+                      "Bank": {
+                        "type": "string",
+                        "description": "Bank"
+                      },
+                      "BankBIC": {
+                        "type": "string",
+                        "description": "BankBIC"
+                      },
+                      "Branch": {
+                        "type": "string",
+                        "description": "Branch"
+                      },
+                      "BranchBIC": {
+                        "type": "string",
+                        "description": "BranchBIC"
+                      },
+                      "ContactAddressLine1": {
+                        "type": "string",
+                        "description": "ContactAddressLine1"
+                      },
+                      "ContactAddressLine2": {
+                        "type": "string",
+                        "description": "ContactAddressLine2"
+                      },
+                      "ContactPostTown": {
+                        "type": "string",
+                        "description": "ContactPostTown"
+                      },
+                      "ContactPostcode": {
+                        "type": "string",
+                        "description": "ContactPostcode"
+                      },
+                      "ContactPhone": {
+                        "type": "string",
+                        "description": "ContactPhone"
+                      },
+                      "ContactFax": {
+                        "type": "string",
+                        "description": "ContactFax"
+                      },
+                      "FasterPaymentsSupported": {
+                        "type": "boolean",
+                        "description": "FasterPaymentsSupported"
+                      },
+                      "CHAPSSupported": {
+                        "type": "boolean",
+                        "description": "CHAPSSupported"
+                      }
+                    }
+                  },
+                  "description": "Items"
+                }
+              }
+            }
+          }
+        },
+        "description": "Validates set of bank details"
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}

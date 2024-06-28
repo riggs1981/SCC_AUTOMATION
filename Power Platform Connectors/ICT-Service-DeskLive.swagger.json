@@ -1,0 +1,3657 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "4me PA Connector",
+    "description": "Various custom actions using the 4me api https://developer.4me.com/v1/"
+  },
+  "host": "api.uk.4me.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/requests/%7B%7BticketID%7D%7D": {},
+    "/v1/requests": {
+      "post": {
+        "summary": "Create a new request",
+        "description": "Creates a new 4ME request",
+        "operationId": "NewRequest",
+        "parameters": [
+          {
+            "name": "X-4me-Account",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "sheffieldcc-it"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "application/json"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "string",
+                  "description": "category"
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "subject"
+                },
+                "note": {
+                  "type": "string",
+                  "description": "note"
+                },
+                "requested_for": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "requested_for"
+                },
+                "requested_by": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "requested_by"
+                },
+                "impact": {
+                  "type": "string",
+                  "description": "impact"
+                },
+                "service_instance_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "service_instance_id"
+                },
+                "ci_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "ci_id"
+                },
+                "template_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "template_id"
+                },
+                "completion_reason": {
+                  "type": "string",
+                  "description": "completion_reason"
+                },
+                "custom_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "custom_fields"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "201",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "addressed": {
+                  "type": "boolean",
+                  "description": "addressed"
+                },
+                "agile_board": {
+                  "type": "string",
+                  "description": "agile_board"
+                },
+                "agile_board_column": {
+                  "type": "string",
+                  "description": "agile_board_column"
+                },
+                "agile_board_column_position": {
+                  "type": "string",
+                  "description": "agile_board_column_position"
+                },
+                "assignment_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "assignment_count"
+                },
+                "attachments": {
+                  "type": "array",
+                  "items": {},
+                  "description": "attachments"
+                },
+                "category": {
+                  "type": "string",
+                  "description": "category"
+                },
+                "change": {
+                  "type": "string",
+                  "description": "change"
+                },
+                "checked_items": {
+                  "type": "string",
+                  "description": "checked_items"
+                },
+                "ci": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "label": {
+                      "type": "string",
+                      "description": "label"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "ci"
+                },
+                "ci_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "ci_id"
+                },
+                "completed_at": {
+                  "type": "string",
+                  "description": "completed_at"
+                },
+                "completion_reason": {
+                  "type": "string",
+                  "description": "completion_reason"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "created_by": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "created_by"
+                },
+                "custom_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "custom_fields"
+                },
+                "desired_completion_at": {
+                  "type": "string",
+                  "description": "desired_completion_at"
+                },
+                "downtime_end_at": {
+                  "type": "string",
+                  "description": "downtime_end_at"
+                },
+                "downtime_start_at": {
+                  "type": "string",
+                  "description": "downtime_start_at"
+                },
+                "feedback": {
+                  "type": "object",
+                  "properties": {
+                    "requested_by": {
+                      "type": "object",
+                      "properties": {
+                        "satisfied_url": {
+                          "type": "string",
+                          "description": "satisfied_url"
+                        },
+                        "dissatisfied_url": {
+                          "type": "string",
+                          "description": "dissatisfied_url"
+                        }
+                      },
+                      "description": "requested_by"
+                    }
+                  },
+                  "description": "feedback"
+                },
+                "grouped_into": {
+                  "type": "string",
+                  "description": "grouped_into"
+                },
+                "grouping": {
+                  "type": "string",
+                  "description": "grouping"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "impact": {
+                  "type": "string",
+                  "description": "impact"
+                },
+                "knowledge_article": {
+                  "type": "string",
+                  "description": "knowledge_article"
+                },
+                "major_incident_status": {
+                  "type": "string",
+                  "description": "major_incident_status"
+                },
+                "member": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "member"
+                },
+                "new_assignment": {
+                  "type": "boolean",
+                  "description": "new_assignment"
+                },
+                "next_target_at": {
+                  "type": "string",
+                  "description": "next_target_at"
+                },
+                "organization": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "organization"
+                },
+                "planned_effort": {
+                  "type": "string",
+                  "description": "planned_effort"
+                },
+                "problem": {
+                  "type": "string",
+                  "description": "problem"
+                },
+                "product_backlog": {
+                  "type": "string",
+                  "description": "product_backlog"
+                },
+                "product_backlog_estimate": {
+                  "type": "string",
+                  "description": "product_backlog_estimate"
+                },
+                "product_backlog_position": {
+                  "type": "string",
+                  "description": "product_backlog_position"
+                },
+                "project": {
+                  "type": "string",
+                  "description": "project"
+                },
+                "provider_not_accountable": {
+                  "type": "boolean",
+                  "description": "provider_not_accountable"
+                },
+                "provider_was_not_accountable": {
+                  "type": "boolean",
+                  "description": "provider_was_not_accountable"
+                },
+                "reopen_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "reopen_count"
+                },
+                "requested_by": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "requested_by"
+                },
+                "requested_for": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "requested_for"
+                },
+                "requester_resolution_target_at": {
+                  "type": "string",
+                  "description": "requester_resolution_target_at"
+                },
+                "reservation": {
+                  "type": "string",
+                  "description": "reservation"
+                },
+                "resolution_duration": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "resolution_duration"
+                },
+                "resolution_target_at": {
+                  "type": "string",
+                  "description": "resolution_target_at"
+                },
+                "response_target_at": {
+                  "type": "string",
+                  "description": "response_target_at"
+                },
+                "reviewed": {
+                  "type": "boolean",
+                  "description": "reviewed"
+                },
+                "satisfaction": {
+                  "type": "string",
+                  "description": "satisfaction"
+                },
+                "service_instance": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "localized_name": {
+                      "type": "string",
+                      "description": "localized_name"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "service_instance"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "source"
+                },
+                "sourceID": {
+                  "type": "string",
+                  "description": "sourceID"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "subject"
+                },
+                "supplier": {
+                  "type": "string",
+                  "description": "supplier"
+                },
+                "supplier_requestID": {
+                  "type": "string",
+                  "description": "supplier_requestID"
+                },
+                "task": {
+                  "type": "string",
+                  "description": "task"
+                },
+                "team": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "team"
+                },
+                "template": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "subject": {
+                      "type": "string",
+                      "description": "subject"
+                    },
+                    "localized_subject": {
+                      "type": "string",
+                      "description": "localized_subject"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "template"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "urgent": {
+                  "type": "boolean",
+                  "description": "urgent"
+                },
+                "waiting_until": {
+                  "type": "string",
+                  "description": "waiting_until"
+                },
+                "workflow": {
+                  "type": "string",
+                  "description": "workflow"
+                },
+                "nodeID": {
+                  "type": "string",
+                  "description": "nodeID"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "addressed": {
+                  "type": "boolean",
+                  "description": "addressed"
+                },
+                "agile_board": {
+                  "type": "string",
+                  "description": "agile_board"
+                },
+                "agile_board_column": {
+                  "type": "string",
+                  "description": "agile_board_column"
+                },
+                "agile_board_column_position": {
+                  "type": "string",
+                  "description": "agile_board_column_position"
+                },
+                "assignment_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "assignment_count"
+                },
+                "attachments": {
+                  "type": "array",
+                  "items": {},
+                  "description": "attachments"
+                },
+                "category": {
+                  "type": "string",
+                  "description": "category"
+                },
+                "change": {
+                  "type": "string",
+                  "description": "change"
+                },
+                "checked_items": {
+                  "type": "string",
+                  "description": "checked_items"
+                },
+                "ci": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "label": {
+                      "type": "string",
+                      "description": "label"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "ci"
+                },
+                "ci_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "ci_id"
+                },
+                "completed_at": {
+                  "type": "string",
+                  "description": "completed_at"
+                },
+                "completion_reason": {
+                  "type": "string",
+                  "description": "completion_reason"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "created_by": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "created_by"
+                },
+                "custom_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "custom_fields"
+                },
+                "desired_completion_at": {
+                  "type": "string",
+                  "description": "desired_completion_at"
+                },
+                "downtime_end_at": {
+                  "type": "string",
+                  "description": "downtime_end_at"
+                },
+                "downtime_start_at": {
+                  "type": "string",
+                  "description": "downtime_start_at"
+                },
+                "feedback": {
+                  "type": "object",
+                  "properties": {
+                    "requested_by": {
+                      "type": "object",
+                      "properties": {
+                        "satisfied_url": {
+                          "type": "string",
+                          "description": "satisfied_url"
+                        },
+                        "dissatisfied_url": {
+                          "type": "string",
+                          "description": "dissatisfied_url"
+                        }
+                      },
+                      "description": "requested_by"
+                    }
+                  },
+                  "description": "feedback"
+                },
+                "grouped_into": {
+                  "type": "string",
+                  "description": "grouped_into"
+                },
+                "grouping": {
+                  "type": "string",
+                  "description": "grouping"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "impact": {
+                  "type": "string",
+                  "description": "impact"
+                },
+                "knowledge_article": {
+                  "type": "string",
+                  "description": "knowledge_article"
+                },
+                "major_incident_status": {
+                  "type": "string",
+                  "description": "major_incident_status"
+                },
+                "member": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "member"
+                },
+                "new_assignment": {
+                  "type": "boolean",
+                  "description": "new_assignment"
+                },
+                "next_target_at": {
+                  "type": "string",
+                  "description": "next_target_at"
+                },
+                "organization": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "organization"
+                },
+                "planned_effort": {
+                  "type": "string",
+                  "description": "planned_effort"
+                },
+                "problem": {
+                  "type": "string",
+                  "description": "problem"
+                },
+                "product_backlog": {
+                  "type": "string",
+                  "description": "product_backlog"
+                },
+                "product_backlog_estimate": {
+                  "type": "string",
+                  "description": "product_backlog_estimate"
+                },
+                "product_backlog_position": {
+                  "type": "string",
+                  "description": "product_backlog_position"
+                },
+                "project": {
+                  "type": "string",
+                  "description": "project"
+                },
+                "provider_not_accountable": {
+                  "type": "boolean",
+                  "description": "provider_not_accountable"
+                },
+                "provider_was_not_accountable": {
+                  "type": "boolean",
+                  "description": "provider_was_not_accountable"
+                },
+                "reopen_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "reopen_count"
+                },
+                "requested_by": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "requested_by"
+                },
+                "requested_for": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "requested_for"
+                },
+                "requester_resolution_target_at": {
+                  "type": "string",
+                  "description": "requester_resolution_target_at"
+                },
+                "reservation": {
+                  "type": "string",
+                  "description": "reservation"
+                },
+                "resolution_duration": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "resolution_duration"
+                },
+                "resolution_target_at": {
+                  "type": "string",
+                  "description": "resolution_target_at"
+                },
+                "response_target_at": {
+                  "type": "string",
+                  "description": "response_target_at"
+                },
+                "reviewed": {
+                  "type": "boolean",
+                  "description": "reviewed"
+                },
+                "satisfaction": {
+                  "type": "string",
+                  "description": "satisfaction"
+                },
+                "service_instance": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "localized_name": {
+                      "type": "string",
+                      "description": "localized_name"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "service_instance"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "source"
+                },
+                "sourceID": {
+                  "type": "string",
+                  "description": "sourceID"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "subject"
+                },
+                "supplier": {
+                  "type": "string",
+                  "description": "supplier"
+                },
+                "supplier_requestID": {
+                  "type": "string",
+                  "description": "supplier_requestID"
+                },
+                "task": {
+                  "type": "string",
+                  "description": "task"
+                },
+                "team": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "team"
+                },
+                "template": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "subject": {
+                      "type": "string",
+                      "description": "subject"
+                    },
+                    "localized_subject": {
+                      "type": "string",
+                      "description": "localized_subject"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "template"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "urgent": {
+                  "type": "boolean",
+                  "description": "urgent"
+                },
+                "waiting_until": {
+                  "type": "string",
+                  "description": "waiting_until"
+                },
+                "workflow": {
+                  "type": "string",
+                  "description": "workflow"
+                },
+                "nodeID": {
+                  "type": "string",
+                  "description": "nodeID"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/cis": {
+      "get": {
+        "summary": "All CMDB",
+        "description": "All CMDB",
+        "operationId": "AllCmdb",
+        "parameters": [
+          {
+            "name": "X-4me-Account",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "sheffieldcc-it",
+            "description": "X-4me-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "id"
+                  },
+                  "sourceID": {
+                    "type": "string",
+                    "description": "sourceID"
+                  },
+                  "software": {
+                    "type": "boolean",
+                    "description": "software"
+                  },
+                  "label": {
+                    "type": "string",
+                    "description": "label"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "name"
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "status"
+                  },
+                  "product": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      },
+                      "category": {
+                        "type": "string",
+                        "description": "category"
+                      },
+                      "nodeID": {
+                        "type": "string",
+                        "description": "nodeID"
+                      },
+                      "brand": {
+                        "type": "string",
+                        "description": "brand"
+                      },
+                      "sourceID": {
+                        "type": "string",
+                        "description": "sourceID"
+                      },
+                      "model": {
+                        "type": "string",
+                        "description": "model"
+                      }
+                    },
+                    "description": "product"
+                  },
+                  "rule_set": {
+                    "type": "string",
+                    "description": "rule_set"
+                  },
+                  "support_team": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      },
+                      "nodeID": {
+                        "type": "string",
+                        "description": "nodeID"
+                      }
+                    },
+                    "description": "support_team"
+                  },
+                  "service": {
+                    "type": "string",
+                    "description": "service"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "description": "created_at"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "description": "updated_at"
+                  },
+                  "nodeID": {
+                    "type": "string",
+                    "description": "nodeID"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "New Configuration Item",
+        "description": "New Configuration Item",
+        "operationId": "NewConfigurationItem",
+        "parameters": [
+          {
+            "name": "X-4me-Account",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "sheffieldcc-it",
+            "description": "X-4me-Account"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "assetID": {
+                  "type": "string",
+                  "description": "assetID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "label"
+                },
+                "product_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "product_id"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "support_team_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "support_team_id"
+                },
+                "custom_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "custom_fields"
+                }
+              },
+              "default": {
+                "assetID": "test456",
+                "name": "Test2",
+                "label": "test2",
+                "product_id": 1211,
+                "status": "in_production",
+                "support_team_id": 69,
+                "custom_fields": [
+                  {
+                    "id": "source_system",
+                    "value": "Power Automate"
+                  },
+                  {
+                    "id": "source_system",
+                    "value": "Power Automate"
+                  }
+                ]
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "201",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "alternate_names": {
+                  "type": "string",
+                  "description": "alternate_names"
+                },
+                "assetID": {
+                  "type": "string",
+                  "description": "assetID"
+                },
+                "attachments": {
+                  "type": "array",
+                  "items": {},
+                  "description": "attachments"
+                },
+                "ci_type": {
+                  "type": "string",
+                  "description": "ci_type"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "custom_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "custom_fields"
+                },
+                "financial_owner": {
+                  "type": "string",
+                  "description": "financial_owner"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "in_use_since": {
+                  "type": "string",
+                  "description": "in_use_since"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "label"
+                },
+                "license_expiry_date": {
+                  "type": "string",
+                  "description": "license_expiry_date"
+                },
+                "license_type": {
+                  "type": "string",
+                  "description": "license_type"
+                },
+                "location": {
+                  "type": "string",
+                  "description": "location"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "nr_of_cores": {
+                  "type": "string",
+                  "description": "nr_of_cores"
+                },
+                "nr_of_licenses": {
+                  "type": "string",
+                  "description": "nr_of_licenses"
+                },
+                "nr_of_processors": {
+                  "type": "string",
+                  "description": "nr_of_processors"
+                },
+                "picture_uri": {
+                  "type": "string",
+                  "description": "picture_uri"
+                },
+                "product": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "category": {
+                      "type": "string",
+                      "description": "category"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    },
+                    "brand": {
+                      "type": "string",
+                      "description": "brand"
+                    },
+                    "model": {
+                      "type": "string",
+                      "description": "model"
+                    }
+                  },
+                  "description": "product"
+                },
+                "recurrence": {
+                  "type": "string",
+                  "description": "recurrence"
+                },
+                "remarks": {
+                  "type": "string",
+                  "description": "remarks"
+                },
+                "rule_set": {
+                  "type": "string",
+                  "description": "rule_set"
+                },
+                "serial_nr": {
+                  "type": "string",
+                  "description": "serial_nr"
+                },
+                "service": {
+                  "type": "string",
+                  "description": "service"
+                },
+                "site": {
+                  "type": "string",
+                  "description": "site"
+                },
+                "site_license": {
+                  "type": "string",
+                  "description": "site_license"
+                },
+                "software": {
+                  "type": "boolean",
+                  "description": "software"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "source"
+                },
+                "sourceID": {
+                  "type": "string",
+                  "description": "sourceID"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "supplier": {
+                  "type": "string",
+                  "description": "supplier"
+                },
+                "support_team": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "support_team"
+                },
+                "systemID": {
+                  "type": "string",
+                  "description": "systemID"
+                },
+                "temporary_license": {
+                  "type": "string",
+                  "description": "temporary_license"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "warranty_expiry_date": {
+                  "type": "string",
+                  "description": "warranty_expiry_date"
+                },
+                "workflow_manager": {
+                  "type": "string",
+                  "description": "workflow_manager"
+                },
+                "workflow_template": {
+                  "type": "string",
+                  "description": "workflow_template"
+                },
+                "nodeID": {
+                  "type": "string",
+                  "description": "nodeID"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/products/%7B%7BproductID%7D%7D": {},
+    "/v1/teams": {
+      "get": {
+        "summary": "Teams",
+        "description": "Teams",
+        "operationId": "Teams",
+        "parameters": [
+          {
+            "name": "X-4me-Account",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "sheffieldcc-it",
+            "description": "X-4me-Account"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "id"
+                  },
+                  "sourceID": {
+                    "type": "string",
+                    "description": "sourceID"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "name"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "description": "created_at"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "description": "updated_at"
+                  },
+                  "nodeID": {
+                    "type": "string",
+                    "description": "nodeID"
+                  },
+                  "disabled": {
+                    "type": "boolean",
+                    "description": "disabled"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/cis/%7B%7BcmdbID%7D%7D": {},
+    "/v1/requests/{ticketID}": {
+      "get": {
+        "summary": "Get Ticket Detail",
+        "description": "Get Ticket Detail",
+        "operationId": "GetTicketDetail",
+        "parameters": [
+          {
+            "name": "ticketID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "X-4me-Account",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "sheffieldcc-it"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "addressed": {
+                  "type": "boolean",
+                  "description": "addressed"
+                },
+                "agile_board": {
+                  "type": "string",
+                  "description": "agile_board"
+                },
+                "agile_board_column": {
+                  "type": "string",
+                  "description": "agile_board_column"
+                },
+                "agile_board_column_position": {
+                  "type": "string",
+                  "description": "agile_board_column_position"
+                },
+                "assignment_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "assignment_count"
+                },
+                "attachments": {
+                  "type": "array",
+                  "items": {},
+                  "description": "attachments"
+                },
+                "category": {
+                  "type": "string",
+                  "description": "category"
+                },
+                "change": {
+                  "type": "string",
+                  "description": "change"
+                },
+                "ci": {
+                  "type": "string",
+                  "description": "ci"
+                },
+                "ci_id": {
+                  "type": "string",
+                  "description": "ci_id"
+                },
+                "completed_at": {
+                  "type": "string",
+                  "description": "completed_at"
+                },
+                "completion_reason": {
+                  "type": "string",
+                  "description": "completion_reason"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "created_by": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "created_by"
+                },
+                "custom_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "custom_fields"
+                },
+                "desired_completion_at": {
+                  "type": "string",
+                  "description": "desired_completion_at"
+                },
+                "downtime_end_at": {
+                  "type": "string",
+                  "description": "downtime_end_at"
+                },
+                "downtime_start_at": {
+                  "type": "string",
+                  "description": "downtime_start_at"
+                },
+                "grouped_into": {
+                  "type": "string",
+                  "description": "grouped_into"
+                },
+                "grouping": {
+                  "type": "string",
+                  "description": "grouping"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "impact": {
+                  "type": "string",
+                  "description": "impact"
+                },
+                "knowledge_article": {
+                  "type": "string",
+                  "description": "knowledge_article"
+                },
+                "major_incident_status": {
+                  "type": "string",
+                  "description": "major_incident_status"
+                },
+                "member": {
+                  "type": "string",
+                  "description": "member"
+                },
+                "new_assignment": {
+                  "type": "boolean",
+                  "description": "new_assignment"
+                },
+                "next_target_at": {
+                  "type": "string",
+                  "description": "next_target_at"
+                },
+                "organization": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "organization"
+                },
+                "planned_effort": {
+                  "type": "string",
+                  "description": "planned_effort"
+                },
+                "problem": {
+                  "type": "string",
+                  "description": "problem"
+                },
+                "product_backlog": {
+                  "type": "string",
+                  "description": "product_backlog"
+                },
+                "product_backlog_estimate": {
+                  "type": "string",
+                  "description": "product_backlog_estimate"
+                },
+                "product_backlog_position": {
+                  "type": "string",
+                  "description": "product_backlog_position"
+                },
+                "project": {
+                  "type": "string",
+                  "description": "project"
+                },
+                "provider_not_accountable": {
+                  "type": "boolean",
+                  "description": "provider_not_accountable"
+                },
+                "provider_was_not_accountable": {
+                  "type": "boolean",
+                  "description": "provider_was_not_accountable"
+                },
+                "reopen_count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "reopen_count"
+                },
+                "requested_by": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "requested_by"
+                },
+                "requested_for": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "requested_for"
+                },
+                "requester_resolution_target_at": {
+                  "type": "string",
+                  "description": "requester_resolution_target_at"
+                },
+                "reservation": {
+                  "type": "string",
+                  "description": "reservation"
+                },
+                "resolution_duration": {
+                  "type": "string",
+                  "description": "resolution_duration"
+                },
+                "resolution_target_at": {
+                  "type": "string",
+                  "description": "resolution_target_at"
+                },
+                "response_target_at": {
+                  "type": "string",
+                  "description": "response_target_at"
+                },
+                "reviewed": {
+                  "type": "boolean",
+                  "description": "reviewed"
+                },
+                "satisfaction": {
+                  "type": "string",
+                  "description": "satisfaction"
+                },
+                "service_instance": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "localized_name": {
+                      "type": "string",
+                      "description": "localized_name"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "service_instance"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "source"
+                },
+                "sourceID": {
+                  "type": "string",
+                  "description": "sourceID"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "subject"
+                },
+                "supplier": {
+                  "type": "string",
+                  "description": "supplier"
+                },
+                "supplier_requestID": {
+                  "type": "string",
+                  "description": "supplier_requestID"
+                },
+                "task": {
+                  "type": "string",
+                  "description": "task"
+                },
+                "team": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "team"
+                },
+                "template": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "subject": {
+                      "type": "string",
+                      "description": "subject"
+                    },
+                    "localized_subject": {
+                      "type": "string",
+                      "description": "localized_subject"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "template"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "urgent": {
+                  "type": "boolean",
+                  "description": "urgent"
+                },
+                "waiting_until": {
+                  "type": "string",
+                  "description": "waiting_until"
+                },
+                "workflow": {
+                  "type": "string",
+                  "description": "workflow"
+                },
+                "nodeID": {
+                  "type": "string",
+                  "description": "nodeID"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/products": {
+      "get": {
+        "summary": "Products",
+        "description": "Products",
+        "operationId": "Products",
+        "parameters": [
+          {
+            "name": "X-4me-Account",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "sheffieldcc-it"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "attachments": {
+                  "type": "array",
+                  "items": {},
+                  "description": "attachments"
+                },
+                "brand": {
+                  "type": "string",
+                  "description": "brand"
+                },
+                "category": {
+                  "type": "string",
+                  "description": "category"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "custom_fields": {
+                  "type": "string",
+                  "description": "custom_fields"
+                },
+                "depreciation_method": {
+                  "type": "string",
+                  "description": "depreciation_method"
+                },
+                "disabled": {
+                  "type": "boolean",
+                  "description": "disabled"
+                },
+                "financial_owner": {
+                  "type": "string",
+                  "description": "financial_owner"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "model": {
+                  "type": "string",
+                  "description": "model"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "picture_uri": {
+                  "type": "string",
+                  "description": "picture_uri"
+                },
+                "productID": {
+                  "type": "string",
+                  "description": "productID"
+                },
+                "rate": {
+                  "type": "string",
+                  "description": "rate"
+                },
+                "recurrence": {
+                  "type": "string",
+                  "description": "recurrence"
+                },
+                "remarks": {
+                  "type": "string",
+                  "description": "remarks"
+                },
+                "rule_set": {
+                  "type": "string",
+                  "description": "rule_set"
+                },
+                "salvage_value": {
+                  "type": "string",
+                  "description": "salvage_value"
+                },
+                "salvage_value_currency": {
+                  "type": "string",
+                  "description": "salvage_value_currency"
+                },
+                "service": {
+                  "type": "string",
+                  "description": "service"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "source"
+                },
+                "sourceID": {
+                  "type": "string",
+                  "description": "sourceID"
+                },
+                "supplier": {
+                  "type": "string",
+                  "description": "supplier"
+                },
+                "support_team": {
+                  "type": "string",
+                  "description": "support_team"
+                },
+                "ui_extension": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "category": {
+                      "type": "string",
+                      "description": "category"
+                    },
+                    "title": {
+                      "type": "string",
+                      "description": "title"
+                    },
+                    "localized_title": {
+                      "type": "string",
+                      "description": "localized_title"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "ui_extension"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "useful_life": {
+                  "type": "string",
+                  "description": "useful_life"
+                },
+                "workflow_manager": {
+                  "type": "string",
+                  "description": "workflow_manager"
+                },
+                "workflow_template": {
+                  "type": "string",
+                  "description": "workflow_template"
+                },
+                "nodeID": {
+                  "type": "string",
+                  "description": "nodeID"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/cis/{cmdbID}": {
+      "get": {
+        "summary": "CMDB Get Item by ID",
+        "description": "CMDB Get Item by ID",
+        "operationId": "CmdbGetItemById",
+        "parameters": [
+          {
+            "name": "cmdbID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "X-4me-Account",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "alternate_names": {
+                  "type": "string",
+                  "description": "alternate_names"
+                },
+                "assetID": {
+                  "type": "string",
+                  "description": "assetID"
+                },
+                "attachments": {
+                  "type": "array",
+                  "items": {},
+                  "description": "attachments"
+                },
+                "ci_type": {
+                  "type": "string",
+                  "description": "ci_type"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "custom_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "custom_fields"
+                },
+                "financial_owner": {
+                  "type": "string",
+                  "description": "financial_owner"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "in_use_since": {
+                  "type": "string",
+                  "description": "in_use_since"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "label"
+                },
+                "license_expiry_date": {
+                  "type": "string",
+                  "description": "license_expiry_date"
+                },
+                "license_type": {
+                  "type": "string",
+                  "description": "license_type"
+                },
+                "location": {
+                  "type": "string",
+                  "description": "location"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "nr_of_cores": {
+                  "type": "string",
+                  "description": "nr_of_cores"
+                },
+                "nr_of_licenses": {
+                  "type": "string",
+                  "description": "nr_of_licenses"
+                },
+                "nr_of_processors": {
+                  "type": "string",
+                  "description": "nr_of_processors"
+                },
+                "picture_uri": {
+                  "type": "string",
+                  "description": "picture_uri"
+                },
+                "product": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "category": {
+                      "type": "string",
+                      "description": "category"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    },
+                    "brand": {
+                      "type": "string",
+                      "description": "brand"
+                    },
+                    "model": {
+                      "type": "string",
+                      "description": "model"
+                    }
+                  },
+                  "description": "product"
+                },
+                "recurrence": {
+                  "type": "string",
+                  "description": "recurrence"
+                },
+                "remarks": {
+                  "type": "string",
+                  "description": "remarks"
+                },
+                "rule_set": {
+                  "type": "string",
+                  "description": "rule_set"
+                },
+                "serial_nr": {
+                  "type": "string",
+                  "description": "serial_nr"
+                },
+                "service": {
+                  "type": "string",
+                  "description": "service"
+                },
+                "site": {
+                  "type": "string",
+                  "description": "site"
+                },
+                "site_license": {
+                  "type": "string",
+                  "description": "site_license"
+                },
+                "software": {
+                  "type": "boolean",
+                  "description": "software"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "source"
+                },
+                "sourceID": {
+                  "type": "string",
+                  "description": "sourceID"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "supplier": {
+                  "type": "string",
+                  "description": "supplier"
+                },
+                "support_team": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "support_team"
+                },
+                "systemID": {
+                  "type": "string",
+                  "description": "systemID"
+                },
+                "temporary_license": {
+                  "type": "string",
+                  "description": "temporary_license"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "warranty_expiry_date": {
+                  "type": "string",
+                  "description": "warranty_expiry_date"
+                },
+                "workflow_manager": {
+                  "type": "string",
+                  "description": "workflow_manager"
+                },
+                "workflow_template": {
+                  "type": "string",
+                  "description": "workflow_template"
+                },
+                "nodeID": {
+                  "type": "string",
+                  "description": "nodeID"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "alternate_names": {
+                  "type": "string",
+                  "description": "alternate_names"
+                },
+                "assetID": {
+                  "type": "string",
+                  "description": "assetID"
+                },
+                "attachments": {
+                  "type": "array",
+                  "items": {},
+                  "description": "attachments"
+                },
+                "ci_type": {
+                  "type": "string",
+                  "description": "ci_type"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "custom_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "custom_fields"
+                },
+                "end_of_support_date": {
+                  "type": "string",
+                  "description": "end_of_support_date"
+                },
+                "financial_owner": {
+                  "type": "string",
+                  "description": "financial_owner"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "in_use_since": {
+                  "type": "string",
+                  "description": "in_use_since"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "label"
+                },
+                "last_seen_at": {
+                  "type": "string",
+                  "description": "last_seen_at"
+                },
+                "license_expiry_date": {
+                  "type": "string",
+                  "description": "license_expiry_date"
+                },
+                "license_type": {
+                  "type": "string",
+                  "description": "license_type"
+                },
+                "location": {
+                  "type": "string",
+                  "description": "location"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "nr_of_cores": {
+                  "type": "string",
+                  "description": "nr_of_cores"
+                },
+                "nr_of_licenses": {
+                  "type": "string",
+                  "description": "nr_of_licenses"
+                },
+                "nr_of_processors": {
+                  "type": "string",
+                  "description": "nr_of_processors"
+                },
+                "operating_system": {
+                  "type": "string",
+                  "description": "operating_system"
+                },
+                "picture_uri": {
+                  "type": "string",
+                  "description": "picture_uri"
+                },
+                "product": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "category": {
+                      "type": "string",
+                      "description": "category"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    },
+                    "brand": {
+                      "type": "string",
+                      "description": "brand"
+                    },
+                    "model": {
+                      "type": "string",
+                      "description": "model"
+                    }
+                  },
+                  "description": "product"
+                },
+                "ram_amount": {
+                  "type": "string",
+                  "description": "ram_amount"
+                },
+                "recurrence": {
+                  "type": "string",
+                  "description": "recurrence"
+                },
+                "remarks": {
+                  "type": "string",
+                  "description": "remarks"
+                },
+                "rule_set": {
+                  "type": "string",
+                  "description": "rule_set"
+                },
+                "serial_nr": {
+                  "type": "string",
+                  "description": "serial_nr"
+                },
+                "service": {
+                  "type": "string",
+                  "description": "service"
+                },
+                "site": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "site"
+                },
+                "site_license": {
+                  "type": "string",
+                  "description": "site_license"
+                },
+                "software": {
+                  "type": "boolean",
+                  "description": "software"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "source"
+                },
+                "sourceID": {
+                  "type": "string",
+                  "description": "sourceID"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "supplier": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "supplier"
+                },
+                "support_team": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "support_team"
+                },
+                "systemID": {
+                  "type": "string",
+                  "description": "systemID"
+                },
+                "temporary_license": {
+                  "type": "string",
+                  "description": "temporary_license"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "warranty_expiry_date": {
+                  "type": "string",
+                  "description": "warranty_expiry_date"
+                },
+                "workflow_manager": {
+                  "type": "string",
+                  "description": "workflow_manager"
+                },
+                "workflow_template": {
+                  "type": "string",
+                  "description": "workflow_template"
+                },
+                "nodeID": {
+                  "type": "string",
+                  "description": "nodeID"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "CMDB Update Config Item & Custom Fields",
+        "description": "CMDB Update Config Item & Custom Fields",
+        "operationId": "CmdbUpdateConfigItemCustomFields",
+        "parameters": [
+          {
+            "name": "cmdbID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "X-4me-Account",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "assetID": {
+                  "type": "string",
+                  "description": "assetID"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "custom_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "custom_fields"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "alternate_names": {
+                  "type": "string",
+                  "description": "alternate_names"
+                },
+                "assetID": {
+                  "type": "string",
+                  "description": "assetID"
+                },
+                "attachments": {
+                  "type": "array",
+                  "items": {},
+                  "description": "attachments"
+                },
+                "ci_type": {
+                  "type": "string",
+                  "description": "ci_type"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "custom_fields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "custom_fields"
+                },
+                "financial_owner": {
+                  "type": "string",
+                  "description": "financial_owner"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "in_use_since": {
+                  "type": "string",
+                  "description": "in_use_since"
+                },
+                "label": {
+                  "type": "string",
+                  "description": "label"
+                },
+                "license_expiry_date": {
+                  "type": "string",
+                  "description": "license_expiry_date"
+                },
+                "license_type": {
+                  "type": "string",
+                  "description": "license_type"
+                },
+                "location": {
+                  "type": "string",
+                  "description": "location"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "nr_of_cores": {
+                  "type": "string",
+                  "description": "nr_of_cores"
+                },
+                "nr_of_licenses": {
+                  "type": "string",
+                  "description": "nr_of_licenses"
+                },
+                "nr_of_processors": {
+                  "type": "string",
+                  "description": "nr_of_processors"
+                },
+                "picture_uri": {
+                  "type": "string",
+                  "description": "picture_uri"
+                },
+                "product": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "category": {
+                      "type": "string",
+                      "description": "category"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    },
+                    "brand": {
+                      "type": "string",
+                      "description": "brand"
+                    },
+                    "model": {
+                      "type": "string",
+                      "description": "model"
+                    }
+                  },
+                  "description": "product"
+                },
+                "recurrence": {
+                  "type": "string",
+                  "description": "recurrence"
+                },
+                "remarks": {
+                  "type": "string",
+                  "description": "remarks"
+                },
+                "rule_set": {
+                  "type": "string",
+                  "description": "rule_set"
+                },
+                "serial_nr": {
+                  "type": "string",
+                  "description": "serial_nr"
+                },
+                "service": {
+                  "type": "string",
+                  "description": "service"
+                },
+                "site": {
+                  "type": "string",
+                  "description": "site"
+                },
+                "site_license": {
+                  "type": "string",
+                  "description": "site_license"
+                },
+                "software": {
+                  "type": "boolean",
+                  "description": "software"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "source"
+                },
+                "sourceID": {
+                  "type": "string",
+                  "description": "sourceID"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "supplier": {
+                  "type": "string",
+                  "description": "supplier"
+                },
+                "support_team": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "support_team"
+                },
+                "systemID": {
+                  "type": "string",
+                  "description": "systemID"
+                },
+                "temporary_license": {
+                  "type": "string",
+                  "description": "temporary_license"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "warranty_expiry_date": {
+                  "type": "string",
+                  "description": "warranty_expiry_date"
+                },
+                "workflow_manager": {
+                  "type": "string",
+                  "description": "workflow_manager"
+                },
+                "workflow_template": {
+                  "type": "string",
+                  "description": "workflow_template"
+                },
+                "nodeID": {
+                  "type": "string",
+                  "description": "nodeID"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/people": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "id"
+                  },
+                  "sourceID": {
+                    "type": "string",
+                    "description": "sourceID"
+                  },
+                  "primary_email": {
+                    "type": "string",
+                    "description": "primary_email"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "name"
+                  },
+                  "organization": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      },
+                      "account": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "id"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "name"
+                          }
+                        },
+                        "description": "account"
+                      },
+                      "nodeID": {
+                        "type": "string",
+                        "description": "nodeID"
+                      }
+                    },
+                    "description": "organization"
+                  },
+                  "site": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      },
+                      "account": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "id"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "name"
+                          }
+                        },
+                        "description": "account"
+                      },
+                      "nodeID": {
+                        "type": "string",
+                        "description": "nodeID"
+                      }
+                    },
+                    "description": "site"
+                  },
+                  "manager": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      },
+                      "account": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "id"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "name"
+                          }
+                        },
+                        "description": "account"
+                      },
+                      "sourceID": {
+                        "type": "string",
+                        "description": "sourceID"
+                      },
+                      "nodeID": {
+                        "type": "string",
+                        "description": "nodeID"
+                      }
+                    },
+                    "description": "manager"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "description": "created_at"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "description": "updated_at"
+                  },
+                  "account": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      }
+                    },
+                    "description": "account"
+                  },
+                  "nodeID": {
+                    "type": "string",
+                    "description": "nodeID"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "summary": "Find user by E-mail Address",
+        "description": "Searches for a 4me user by E-mail address and returns 4me information about that user",
+        "operationId": "getUser",
+        "parameters": [
+          {
+            "name": "primary_email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "Application/JSON"
+          },
+          {
+            "name": "X-4me-Account",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "sheffieldcc-it"
+          }
+        ]
+      }
+    },
+    "/v1/workflows": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "actual_effort": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "actual_effort"
+                },
+                "actual_vs_planned_effort_percentage": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "actual_vs_planned_effort_percentage"
+                },
+                "attachments": {
+                  "type": "array",
+                  "items": {},
+                  "description": "attachments"
+                },
+                "category": {
+                  "type": "string",
+                  "description": "category"
+                },
+                "change_type": {
+                  "type": "string",
+                  "description": "change_type"
+                },
+                "completed_at": {
+                  "type": "string",
+                  "description": "completed_at"
+                },
+                "completion_reason": {
+                  "type": "string",
+                  "description": "completion_reason"
+                },
+                "completion_target_at": {
+                  "type": "string",
+                  "description": "completion_target_at"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "custom_fields": {
+                  "type": "string",
+                  "description": "custom_fields"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "id"
+                },
+                "impact": {
+                  "type": "string",
+                  "description": "impact"
+                },
+                "justification": {
+                  "type": "string",
+                  "description": "justification"
+                },
+                "manager": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "account": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        }
+                      },
+                      "description": "account"
+                    },
+                    "sourceID": {
+                      "type": "string",
+                      "description": "sourceID"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "manager"
+                },
+                "planned_effort": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "planned_effort"
+                },
+                "project": {
+                  "type": "string",
+                  "description": "project"
+                },
+                "release": {
+                  "type": "string",
+                  "description": "release"
+                },
+                "resolution_duration": {
+                  "type": "string",
+                  "description": "resolution_duration"
+                },
+                "service": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name"
+                    },
+                    "localized_name": {
+                      "type": "string",
+                      "description": "localized_name"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    },
+                    "provider": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "id"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name"
+                        },
+                        "account": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "description": "id"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "name"
+                            }
+                          },
+                          "description": "account"
+                        },
+                        "nodeID": {
+                          "type": "string",
+                          "description": "nodeID"
+                        }
+                      },
+                      "description": "provider"
+                    }
+                  },
+                  "description": "service"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "source"
+                },
+                "sourceID": {
+                  "type": "string",
+                  "description": "sourceID"
+                },
+                "start_at": {
+                  "type": "string",
+                  "description": "start_at"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "subject"
+                },
+                "template": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "id"
+                    },
+                    "subject": {
+                      "type": "string",
+                      "description": "subject"
+                    },
+                    "nodeID": {
+                      "type": "string",
+                      "description": "nodeID"
+                    }
+                  },
+                  "description": "template"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "description": "updated_at"
+                },
+                "workflow_type": {
+                  "type": "string",
+                  "description": "workflow_type"
+                },
+                "nodeID": {
+                  "type": "string",
+                  "description": "nodeID"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "summary": "Create Workflow",
+        "description": "Creates a 4me workflow from a template",
+        "operationId": "CreateWorkflow",
+        "parameters": [
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-4me-Account",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "string",
+                  "description": "category"
+                },
+                "template_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "template_id"
+                },
+                "justification": {
+                  "type": "string",
+                  "description": "justification"
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "subject"
+                },
+                "service_id": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "service_id"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "API Key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
+    }
+  },
+  "security": [
+    {
+      "API Key": []
+    }
+  ],
+  "tags": []
+}

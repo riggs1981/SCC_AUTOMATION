@@ -1,0 +1,345 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Verint Process Manager REST",
+    "description": "Verint Process Manager REST"
+  },
+  "host": "pmgt-qa-sheffield.squiz.cloud",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/processes/public/rest-address-lookup": {
+      "post": {
+        "summary": "Search all properties",
+        "description": "Search all properties",
+        "operationId": "SearchAllProperties",
+        "parameters": [
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "string",
+                  "description": "number"
+                },
+                "street": {
+                  "type": "string",
+                  "description": "street"
+                },
+                "postcode": {
+                  "type": "string",
+                  "description": "postcode"
+                },
+                "buildingName": {
+                  "type": "string",
+                  "description": "buildingName"
+                },
+                "subBuilding": {
+                  "type": "string",
+                  "description": "subBuilding"
+                },
+                "uprn": {
+                  "type": "string",
+                  "description": "uprn"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "type"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "type": "string",
+                  "description": "number"
+                },
+                "street": {
+                  "type": "string",
+                  "description": "street"
+                },
+                "postcode": {
+                  "type": "string",
+                  "description": "postcode"
+                },
+                "buildingName": {
+                  "type": "string",
+                  "description": "buildingName"
+                },
+                "subBuilding": {
+                  "type": "string",
+                  "description": "subBuilding"
+                },
+                "uprn": {
+                  "type": "string",
+                  "description": "uprn"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "type"
+                },
+                "response": {
+                  "type": "string",
+                  "description": "response"
+                },
+                "propertyID": {
+                  "type": "string",
+                  "description": "propertyID"
+                },
+                "fullAddress": {
+                  "type": "string",
+                  "description": "fullAddress"
+                },
+                "appartment": {
+                  "type": "string",
+                  "description": "appartment"
+                },
+                "building": {
+                  "type": "string",
+                  "description": "building"
+                },
+                "addressNumber": {
+                  "type": "string",
+                  "description": "addressNumber"
+                },
+                "addressLine1": {
+                  "type": "string",
+                  "description": "addressLine1"
+                },
+                "addressLine2": {
+                  "type": "string",
+                  "description": "addressLine2"
+                },
+                "town": {
+                  "type": "string",
+                  "description": "town"
+                },
+                "postCode": {
+                  "type": "string",
+                  "description": "postCode"
+                },
+                "llpgUPRN": {
+                  "type": "string",
+                  "description": "llpgUPRN"
+                },
+                "ohmsUPRN": {
+                  "type": "string",
+                  "description": "ohmsUPRN"
+                },
+                "propertyType": {
+                  "type": "string",
+                  "description": "propertyType"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "llpgUprn": {
+                  "type": "string",
+                  "description": "llpgUprn"
+                },
+                "response": {
+                  "type": "string",
+                  "description": "response"
+                },
+                "propertyID": {
+                  "type": "string",
+                  "description": "propertyID"
+                },
+                "fullAddress": {
+                  "type": "string",
+                  "description": "fullAddress"
+                },
+                "appartment": {
+                  "type": "string",
+                  "description": "appartment"
+                },
+                "building": {
+                  "type": "string",
+                  "description": "building"
+                },
+                "buildingNumber": {
+                  "type": "string",
+                  "description": "buildingNumber"
+                },
+                "addressLine1": {
+                  "type": "string",
+                  "description": "addressLine1"
+                },
+                "addressLine2": {
+                  "type": "string",
+                  "description": "addressLine2"
+                },
+                "town": {
+                  "type": "string",
+                  "description": "town"
+                },
+                "postCode": {
+                  "type": "string",
+                  "description": "postCode"
+                },
+                "llpgUPRN": {
+                  "type": "string",
+                  "description": "llpgUPRN"
+                },
+                "ohmsUPRN": {
+                  "type": "string",
+                  "description": "ohmsUPRN"
+                },
+                "propertyType": {
+                  "type": "string",
+                  "description": "propertyType"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/processes/public/rest-address-lookup-council-housing": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "llpgUprn": {
+                  "type": "string",
+                  "description": "llpgUprn"
+                },
+                "response": {
+                  "type": "string",
+                  "description": "response"
+                },
+                "propertyID": {
+                  "type": "string",
+                  "description": "propertyID"
+                },
+                "fullAddress": {
+                  "type": "string",
+                  "description": "fullAddress"
+                },
+                "appartment": {
+                  "type": "string",
+                  "description": "appartment"
+                },
+                "building": {
+                  "type": "string",
+                  "description": "building"
+                },
+                "buildingNumber": {
+                  "type": "string",
+                  "description": "buildingNumber"
+                },
+                "addressLine1": {
+                  "type": "string",
+                  "description": "addressLine1"
+                },
+                "addressLine2": {
+                  "type": "string",
+                  "description": "addressLine2"
+                },
+                "town": {
+                  "type": "string",
+                  "description": "town"
+                },
+                "postCode": {
+                  "type": "string",
+                  "description": "postCode"
+                },
+                "llpgUPRN": {
+                  "type": "string",
+                  "description": "llpgUPRN"
+                },
+                "ohmsUPRN": {
+                  "type": "string",
+                  "description": "ohmsUPRN"
+                },
+                "propertyType": {
+                  "type": "string",
+                  "description": "propertyType"
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "Content-Type",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "summary": "Retrieve property by UPRN",
+        "description": "Retrieves OHMS property details based on UPRN",
+        "operationId": "RetrieveByUprn",
+        "parameters": [
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "llpgUprn": {
+                  "type": "string",
+                  "description": "llpgUprn"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}

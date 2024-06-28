@@ -1,0 +1,137 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "DVLA",
+    "description": "The DVLA Vehicle Enquiry Service API is a RESTful service that provides vehicle details of a specified vehicle. It uses the vehicle registration number as input to search and provide details of the vehicle. The response data is provided in JSON format."
+  },
+  "host": "driver-vehicle-licensing.api.gov.uk",
+  "basePath": "/vehicle-enquiry/v1/vehicles",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "registrationNumber": {
+                  "type": "string",
+                  "description": "registrationNumber"
+                },
+                "co2Emissions": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "co2Emissions"
+                },
+                "engineCapacity": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "engineCapacity"
+                },
+                "markedForExport": {
+                  "type": "boolean",
+                  "description": "markedForExport"
+                },
+                "fuelType": {
+                  "type": "string",
+                  "description": "fuelType"
+                },
+                "motStatus": {
+                  "type": "string",
+                  "description": "motStatus"
+                },
+                "revenueWeight": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "revenueWeight"
+                },
+                "colour": {
+                  "type": "string",
+                  "description": "colour"
+                },
+                "make": {
+                  "type": "string",
+                  "description": "make"
+                },
+                "typeApproval": {
+                  "type": "string",
+                  "description": "typeApproval"
+                },
+                "yearOfManufacture": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "yearOfManufacture"
+                },
+                "taxDueDate": {
+                  "type": "string",
+                  "description": "taxDueDate"
+                },
+                "taxStatus": {
+                  "type": "string",
+                  "description": "taxStatus"
+                },
+                "dateOfLastV5CIssued": {
+                  "type": "string",
+                  "description": "dateOfLastV5CIssued"
+                },
+                "motExpiryDate": {
+                  "type": "string",
+                  "description": "motExpiryDate"
+                },
+                "wheelplan": {
+                  "type": "string",
+                  "description": "wheelplan"
+                },
+                "monthOfFirstRegistration": {
+                  "type": "string",
+                  "description": "monthOfFirstRegistration"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Request to get vehicle data",
+        "description": "DVLA Api to get Vehicle information",
+        "operationId": "getVehicle",
+        "x-ms-visibility": "advanced",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "registrationNumber": {
+                  "type": "string",
+                  "description": "registrationNumber"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-api-key"
+    }
+  },
+  "security": [],
+  "tags": []
+}

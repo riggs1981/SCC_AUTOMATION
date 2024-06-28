@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "itrent_data_conversion": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7247",
+      "launchBrowser": false
+    }
+  }
+}

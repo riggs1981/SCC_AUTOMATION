@@ -1,0 +1,88 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Fix My Street Email-to-Case",
+    "description": "Fix My Street Email-to-Case"
+  },
+  "host": "pmgt-sheffield.squiz.cloud",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/processes/public/fix-my-street-integration": {
+      "post": {
+        "summary": "New Request",
+        "description": "New Request",
+        "operationId": "NewRequest",
+        "parameters": [
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "customerName": {
+                  "type": "string",
+                  "description": "customerName"
+                },
+                "customerEmail": {
+                  "type": "string",
+                  "description": "customerEmail"
+                },
+                "customerTelephone": {
+                  "type": "string",
+                  "description": "customerTelephone"
+                },
+                "faultType": {
+                  "type": "string",
+                  "description": "faultType"
+                },
+                "faultCase": {
+                  "type": "string",
+                  "description": "faultCase"
+                },
+                "faultTitle": {
+                  "type": "string",
+                  "description": "faultTitle"
+                },
+                "faultNotes": {
+                  "type": "string",
+                  "description": "faultNotes"
+                },
+                "eastingsNorthings": {
+                  "type": "string",
+                  "description": "eastingsNorthings"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}

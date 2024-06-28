@@ -1,0 +1,796 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "SCC GovUkNotifyv2",
+    "description": "Gov.uk Notify Connector including ability to get inbound messages, check message status, send emails and send postal letters. Charges may be incurred by usage."
+  },
+  "host": "sccgovuknotifyv2.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/SendSMS": {
+      "post": {
+        "summary": "Gov.uk send SMS",
+        "description": "Gov.uk send SMS",
+        "operationId": "Gov.ukSendSms",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "template": {
+                  "type": "string",
+                  "description": "template",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetTemplates",
+                    "value-path": "id",
+                    "value-collection": "templates",
+                    "value-title": "name"
+                  },
+                  "x-ms-visibility": "important"
+                },
+                "mobile": {
+                  "type": "string",
+                  "description": "mobile",
+                  "title": "",
+                  "x-ms-visibility": "important"
+                },
+                "additionalContent": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "paramName": {
+                        "type": "string",
+                        "description": "paramName"
+                      },
+                      "paramValue": {
+                        "type": "string",
+                        "description": "paramValue"
+                      }
+                    }
+                  },
+                  "description": "additionalContent"
+                }
+              },
+              "default": {
+                "template": "cd115489-3f22-47ee-be04-ad984edbeb2d",
+                "mobile": "+447877946497",
+                "additionalContent": [
+                  {
+                    "paramName": "link",
+                    "paramValue": "www.google.com"
+                  },
+                  {
+                    "paramName": "link",
+                    "paramValue": "www.google.com"
+                  }
+                ]
+              },
+              "required": [
+                "template",
+                "mobile"
+              ]
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "object",
+                  "properties": {
+                    "body": {
+                      "type": "string",
+                      "description": "body"
+                    },
+                    "from_number": {
+                      "type": "string",
+                      "description": "from_number"
+                    }
+                  },
+                  "description": "content"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "reference": {
+                  "type": "string",
+                  "description": "reference"
+                },
+                "uri": {
+                  "type": "string",
+                  "description": "uri"
+                },
+                "template": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "id"
+                    },
+                    "uri": {
+                      "type": "string",
+                      "description": "uri"
+                    },
+                    "version": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "version"
+                    }
+                  },
+                  "description": "template"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-visibility": "important"
+      }
+    },
+    "/api/SendEmail": {
+      "post": {
+        "summary": "Gov.uk send Email",
+        "description": "Gov.uk send Email",
+        "operationId": "Gov.ukSendEmail",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "template": {
+                  "type": "string",
+                  "description": "template",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetTemplates",
+                    "value-path": "id",
+                    "value-collection": "templates",
+                    "value-title": "name"
+                  },
+                  "x-ms-visibility": "important"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "email",
+                  "title": "",
+                  "x-ms-visibility": "important"
+                },
+                "additionalContent": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "paramName": {
+                        "type": "string",
+                        "description": "paramName"
+                      },
+                      "paramValue": {
+                        "type": "string",
+                        "description": "paramValue"
+                      }
+                    }
+                  },
+                  "description": "additionalContent"
+                }
+              },
+              "default": {
+                "template": "4980995e-fe0b-40f2-bf2f-0238da4819cc",
+                "email": "martin.riggall@sheffield.gov.uk",
+                "additionalContent": [
+                  {
+                    "paramName": "days",
+                    "paramValue": "20"
+                  },
+                  {
+                    "paramName": "app",
+                    "paramValue": "Blue Badge"
+                  },
+                  {
+                    "paramName": "service",
+                    "paramValue": "Customer Services"
+                  },
+                  {
+                    "paramName": "days",
+                    "paramValue": "20"
+                  }
+                ]
+              },
+              "required": [
+                "email",
+                "template"
+              ]
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "object",
+                  "properties": {
+                    "from_email": {
+                      "type": "string",
+                      "description": "from_email"
+                    },
+                    "body": {
+                      "type": "string",
+                      "description": "body"
+                    },
+                    "subject": {
+                      "type": "string",
+                      "description": "subject"
+                    }
+                  },
+                  "description": "content"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "reference": {
+                  "type": "string",
+                  "description": "reference"
+                },
+                "uri": {
+                  "type": "string",
+                  "description": "uri"
+                },
+                "template": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "id"
+                    },
+                    "uri": {
+                      "type": "string",
+                      "description": "uri"
+                    },
+                    "version": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "version"
+                    }
+                  },
+                  "description": "template"
+                }
+              }
+            }
+          }
+        },
+        "x-ms-visibility": "important"
+      }
+    },
+    "/api/SendLetter": {
+      "post": {
+        "summary": "Gov.uk send Letter",
+        "description": "Gov.uk send Letter",
+        "operationId": "Gov.ukSendLetter",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "template": {
+                  "type": "string",
+                  "description": "template",
+                  "title": "",
+                  "x-ms-dynamic-values": {
+                    "operationId": "GetTemplates",
+                    "value-path": "id",
+                    "value-collection": "templates",
+                    "value-title": "name"
+                  }
+                },
+                "customerTitle": {
+                  "type": "string",
+                  "description": "customerTitle"
+                },
+                "customerForename": {
+                  "type": "string",
+                  "description": "customerForename"
+                },
+                "customerSurname": {
+                  "type": "string",
+                  "description": "customerSurname"
+                },
+                "addressLine1": {
+                  "type": "string",
+                  "description": "addressLine1"
+                },
+                "addressLine2": {
+                  "type": "string",
+                  "description": "addressLine2"
+                },
+                "addressLine3": {
+                  "type": "string",
+                  "description": "addressLine3"
+                },
+                "addressLine4": {
+                  "type": "string",
+                  "description": "addressLine4"
+                },
+                "addressLine5": {
+                  "type": "string",
+                  "description": "addressLine5"
+                },
+                "postCode": {
+                  "type": "string",
+                  "description": "postCode"
+                },
+                "additionalContent": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "paramName": {
+                        "type": "string",
+                        "description": "paramName"
+                      },
+                      "paramValue": {
+                        "type": "string",
+                        "description": "paramValue"
+                      }
+                    }
+                  },
+                  "description": "additionalContent"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "postage": {
+                  "type": "string",
+                  "description": "postage"
+                },
+                "content": {
+                  "type": "object",
+                  "properties": {
+                    "body": {
+                      "type": "string",
+                      "description": "body"
+                    },
+                    "subject": {
+                      "type": "string",
+                      "description": "subject"
+                    }
+                  },
+                  "description": "content"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "reference": {
+                  "type": "string",
+                  "description": "reference"
+                },
+                "uri": {
+                  "type": "string",
+                  "description": "uri"
+                },
+                "template": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "id"
+                    },
+                    "uri": {
+                      "type": "string",
+                      "description": "uri"
+                    },
+                    "version": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "version"
+                    }
+                  },
+                  "description": "template"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GetStatus": {
+      "get": {
+        "summary": "Get Message Status",
+        "description": "Get Message Status",
+        "operationId": "GetMessageStatus",
+        "parameters": [
+          {
+            "name": "notifyId",
+            "default": "3f5e2c00-98fa-4e01-99c0-feac907439bf",
+            "in": "query",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "completed_at": {
+                  "type": "string",
+                  "description": "completed_at"
+                },
+                "created_at": {
+                  "type": "string",
+                  "description": "created_at"
+                },
+                "email_address": {
+                  "type": "string",
+                  "description": "email_address"
+                },
+                "body": {
+                  "type": "string",
+                  "description": "body"
+                },
+                "subject": {
+                  "type": "string",
+                  "description": "subject"
+                },
+                "line_1": {
+                  "type": "string",
+                  "description": "line_1"
+                },
+                "line_2": {
+                  "type": "string",
+                  "description": "line_2"
+                },
+                "line_3": {
+                  "type": "string",
+                  "description": "line_3"
+                },
+                "line_4": {
+                  "type": "string",
+                  "description": "line_4"
+                },
+                "line_5": {
+                  "type": "string",
+                  "description": "line_5"
+                },
+                "line_6": {
+                  "type": "string",
+                  "description": "line_6"
+                },
+                "phone_number": {
+                  "type": "string",
+                  "description": "phone_number"
+                },
+                "postcode": {
+                  "type": "string",
+                  "description": "postcode"
+                },
+                "postage": {
+                  "type": "string",
+                  "description": "postage"
+                },
+                "reference": {
+                  "type": "string",
+                  "description": "reference"
+                },
+                "sent_at": {
+                  "type": "string",
+                  "description": "sent_at"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "template": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "id"
+                    },
+                    "uri": {
+                      "type": "string",
+                      "description": "uri"
+                    },
+                    "version": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "version"
+                    }
+                  },
+                  "description": "template"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "type"
+                },
+                "created_by_name": {
+                  "type": "string",
+                  "description": "created_by_name"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GetInboundSMS": {
+      "get": {
+        "summary": "Get Inbound SMS",
+        "description": "Get Inbound SMS",
+        "operationId": "GetInboundSms",
+        "parameters": [
+          {
+            "name": "received_in_last_minutes",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "received_After": {
+                  "type": "string",
+                  "description": "received_After"
+                },
+                "messageArray": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "created_at"
+                      },
+                      "content": {
+                        "type": "string",
+                        "description": "content"
+                      },
+                      "user_number": {
+                        "type": "string",
+                        "description": "user_number"
+                      },
+                      "notify_number": {
+                        "type": "string",
+                        "description": "notify_number"
+                      },
+                      "service_id": {
+                        "type": "string",
+                        "description": "service_id"
+                      }
+                    }
+                  },
+                  "description": "messageArray"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trigger/api/GetInboundSMS": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "received_After": {
+                  "type": "string",
+                  "description": "received_After"
+                },
+                "messageArray": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "created_at"
+                      },
+                      "content": {
+                        "type": "string",
+                        "description": "content"
+                      },
+                      "user_number": {
+                        "type": "string",
+                        "description": "user_number"
+                      },
+                      "notify_number": {
+                        "type": "string",
+                        "description": "notify_number"
+                      },
+                      "service_id": {
+                        "type": "string",
+                        "description": "service_id"
+                      }
+                    }
+                  },
+                  "description": "messageArray"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "summary": "Get Inbound Messages",
+        "description": "Trigger a flow when an inbound message arrives",
+        "operationId": "GetInboundTrigger",
+        "x-ms-trigger": "batch",
+        "parameters": [
+          {
+            "name": "received_in_last_minutes",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "x-ms-trigger-hint": "New SMS",
+        "x-ms-trigger-metadata": {
+          "mode": "polling",
+          "kind": "query"
+        }
+      }
+    },
+    "/api/GetTemplates": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "templates": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "type"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "created_at"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "description": "updated_at"
+                      },
+                      "created_by": {
+                        "type": "string",
+                        "description": "created_by"
+                      },
+                      "version": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "version"
+                      },
+                      "body": {
+                        "type": "string",
+                        "description": "body"
+                      },
+                      "subject": {
+                        "type": "string",
+                        "description": "subject"
+                      },
+                      "letter_contact_block": {
+                        "type": "string",
+                        "description": "letter_contact_block"
+                      }
+                    }
+                  },
+                  "description": "templates"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "summary": "Get Templates",
+        "description": "Gets all templates available for the current connection",
+        "operationId": "GetTemplates",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "all",
+            "enum": [
+              "sms",
+              "letter",
+              "email",
+              "all"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-gov-key"
+    }
+  },
+  "security": [],
+  "tags": []
+}

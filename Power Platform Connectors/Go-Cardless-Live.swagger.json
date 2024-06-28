@@ -1,0 +1,595 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Go Cardless",
+    "description": "Go Cardless"
+  },
+  "host": "api.gocardless.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/payouts": {
+      "get": {
+        "summary": "Get Payouts",
+        "description": "Get Payouts",
+        "operationId": "GetPayouts",
+        "parameters": [
+          {
+            "name": "created_at[gt]",
+            "default": "2022-09-01T00:00:00.000Z",
+            "in": "query",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "created_at[lt]",
+            "default": "2022-10-06T23:59:06.000Z",
+            "in": "query",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "GoCardless-Version",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "2015-07-06",
+            "description": "GoCardless-Version"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "payouts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "amount": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "amount"
+                      },
+                      "deducted_fees": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "deducted_fees"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "currency"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "created_at"
+                      },
+                      "reference": {
+                        "type": "string",
+                        "description": "reference"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "status"
+                      },
+                      "arrival_date": {
+                        "type": "string",
+                        "description": "arrival_date"
+                      },
+                      "payout_type": {
+                        "type": "string",
+                        "description": "payout_type"
+                      },
+                      "fx": {
+                        "type": "object",
+                        "properties": {
+                          "fx_currency": {
+                            "type": "string",
+                            "description": "fx_currency"
+                          },
+                          "fx_amount": {
+                            "type": "string",
+                            "description": "fx_amount"
+                          },
+                          "exchange_rate": {
+                            "type": "string",
+                            "description": "exchange_rate"
+                          },
+                          "estimated_exchange_rate": {
+                            "type": "string",
+                            "description": "estimated_exchange_rate"
+                          }
+                        },
+                        "description": "fx"
+                      },
+                      "tax_currency": {
+                        "type": "string",
+                        "description": "tax_currency"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "properties": {},
+                        "description": "metadata"
+                      },
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "creditor_bank_account": {
+                            "type": "string",
+                            "description": "creditor_bank_account"
+                          },
+                          "creditor": {
+                            "type": "string",
+                            "description": "creditor"
+                          }
+                        },
+                        "description": "links"
+                      }
+                    }
+                  },
+                  "description": "payouts"
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "cursors": {
+                      "type": "object",
+                      "properties": {
+                        "before": {
+                          "type": "string",
+                          "description": "before"
+                        },
+                        "after": {
+                          "type": "string",
+                          "description": "after"
+                        }
+                      },
+                      "description": "cursors"
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "limit"
+                    }
+                  },
+                  "description": "meta"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payments": {
+      "get": {
+        "summary": "Get Payments",
+        "description": "Get Payments",
+        "operationId": "GetPayments",
+        "parameters": [
+          {
+            "name": "created_at[gt]",
+            "default": "2022-05-04T00:00:00.000Z",
+            "in": "query",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "created_at[lt]",
+            "default": "2022-09-04T23:59:06.000Z",
+            "in": "query",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "GoCardless-Version",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "2015-07-06",
+            "description": "GoCardless-Version"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "payments": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "created_at"
+                      },
+                      "charge_date": {
+                        "type": "string",
+                        "description": "charge_date"
+                      },
+                      "amount": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "amount"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "description"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "currency"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "status"
+                      },
+                      "amount_refunded": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "amount_refunded"
+                      },
+                      "reference": {
+                        "type": "string",
+                        "description": "reference"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "properties": {},
+                        "description": "metadata"
+                      },
+                      "fx": {
+                        "type": "object",
+                        "properties": {
+                          "fx_currency": {
+                            "type": "string",
+                            "description": "fx_currency"
+                          },
+                          "fx_amount": {
+                            "type": "string",
+                            "description": "fx_amount"
+                          },
+                          "exchange_rate": {
+                            "type": "string",
+                            "description": "exchange_rate"
+                          },
+                          "estimated_exchange_rate": {
+                            "type": "string",
+                            "description": "estimated_exchange_rate"
+                          }
+                        },
+                        "description": "fx"
+                      },
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "mandate": {
+                            "type": "string",
+                            "description": "mandate"
+                          },
+                          "creditor": {
+                            "type": "string",
+                            "description": "creditor"
+                          },
+                          "payout": {
+                            "type": "string",
+                            "description": "payout"
+                          }
+                        },
+                        "description": "links"
+                      },
+                      "retry_if_possible": {
+                        "type": "boolean",
+                        "description": "retry_if_possible"
+                      }
+                    }
+                  },
+                  "description": "payments"
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "cursors": {
+                      "type": "object",
+                      "properties": {
+                        "before": {
+                          "type": "string",
+                          "description": "before"
+                        },
+                        "after": {
+                          "type": "string",
+                          "description": "after"
+                        }
+                      },
+                      "description": "cursors"
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "limit"
+                    }
+                  },
+                  "description": "meta"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payout_items": {
+      "get": {
+        "summary": "Payout Items",
+        "description": "Payout Items",
+        "operationId": "PayoutItems",
+        "parameters": [
+          {
+            "name": "payout",
+            "default": "PO00068BCEBJZY",
+            "in": "query",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "GoCardless-Version",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "2015-07-06",
+            "description": "GoCardless-Version"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "payout_items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "type"
+                      },
+                      "amount": {
+                        "type": "string",
+                        "description": "amount"
+                      },
+                      "taxes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": "string",
+                              "description": "amount"
+                            },
+                            "currency": {
+                              "type": "string",
+                              "description": "currency"
+                            },
+                            "destination_amount": {
+                              "type": "string",
+                              "description": "destination_amount"
+                            },
+                            "destination_currency": {
+                              "type": "string",
+                              "description": "destination_currency"
+                            },
+                            "exchange_rate": {
+                              "type": "string",
+                              "description": "exchange_rate"
+                            },
+                            "tax_rate_id": {
+                              "type": "string",
+                              "description": "tax_rate_id"
+                            }
+                          }
+                        },
+                        "description": "taxes"
+                      },
+                      "links": {
+                        "type": "object",
+                        "properties": {
+                          "payment": {
+                            "type": "string",
+                            "description": "payment"
+                          }
+                        },
+                        "description": "links"
+                      }
+                    }
+                  },
+                  "description": "payout_items"
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "cursors": {
+                      "type": "object",
+                      "properties": {
+                        "before": {
+                          "type": "string",
+                          "description": "before"
+                        },
+                        "after": {
+                          "type": "string",
+                          "description": "after"
+                        }
+                      },
+                      "description": "cursors"
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "limit"
+                    }
+                  },
+                  "description": "meta"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payments/%7B%7BpaymentId%7D%7D": {},
+    "/payments/{paymentId}": {
+      "get": {
+        "summary": "Get Payment Items",
+        "description": "Get Payment Items",
+        "operationId": "GetPaymentItems",
+        "parameters": [
+          {
+            "name": "paymentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "GoCardless-Version",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "payments": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "id"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "created_at"
+                    },
+                    "charge_date": {
+                      "type": "string",
+                      "description": "charge_date"
+                    },
+                    "amount": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "amount"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "description"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "currency"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "amount_refunded": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "amount_refunded"
+                    },
+                    "reference": {
+                      "type": "string",
+                      "description": "reference"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {},
+                      "description": "metadata"
+                    },
+                    "fx": {
+                      "type": "object",
+                      "properties": {
+                        "fx_currency": {
+                          "type": "string",
+                          "description": "fx_currency"
+                        },
+                        "fx_amount": {
+                          "type": "string",
+                          "description": "fx_amount"
+                        },
+                        "exchange_rate": {
+                          "type": "string",
+                          "description": "exchange_rate"
+                        },
+                        "estimated_exchange_rate": {
+                          "type": "string",
+                          "description": "estimated_exchange_rate"
+                        }
+                      },
+                      "description": "fx"
+                    },
+                    "links": {
+                      "type": "object",
+                      "properties": {
+                        "mandate": {
+                          "type": "string",
+                          "description": "mandate"
+                        },
+                        "creditor": {
+                          "type": "string",
+                          "description": "creditor"
+                        },
+                        "payout": {
+                          "type": "string",
+                          "description": "payout"
+                        }
+                      },
+                      "description": "links"
+                    },
+                    "retry_if_possible": {
+                      "type": "boolean",
+                      "description": "retry_if_possible"
+                    }
+                  },
+                  "description": "payments"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
+    }
+  },
+  "security": [],
+  "tags": []
+}

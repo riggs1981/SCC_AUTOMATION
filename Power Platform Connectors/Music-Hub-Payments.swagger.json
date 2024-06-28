@@ -1,0 +1,85 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Music Hub Payments",
+    "description": "Financial reconciliation from",
+    "version": "1.0"
+  },
+  "host": "sheffield.eepos.fi",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/dev/api/uk-music-hub/payments/pay360": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "description": "success"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "sendPayment",
+        "summary": "Send payment data to music hub",
+        "description": "Send payment data to music hub",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "description": "email"
+                },
+                "reference": {
+                  "type": "string",
+                  "description": "reference"
+                },
+                "amount": {
+                  "type": "string",
+                  "description": "amount"
+                },
+                "paymentReference": {
+                  "type": "string",
+                  "description": "paymentReference"
+                }
+              }
+            }
+          }
+        ],
+        "x-ms-visibility": "important"
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-Developer-Api-Key"
+    }
+  },
+  "security": [],
+  "tags": []
+}

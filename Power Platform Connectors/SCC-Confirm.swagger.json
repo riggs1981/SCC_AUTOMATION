@@ -1,0 +1,637 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "SCC Confirm Implementation",
+    "description": "SCC Confirm Implementation"
+  },
+  "host": "sccconfirm.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/GetStatusChanges": {
+      "post": {
+        "summary": "Confirm - Get All Changes",
+        "description": "Confirm - Get All Changes",
+        "operationId": "Confirm-GetAllChanges",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fromDateTime": {
+                  "type": "string",
+                  "description": "fromDateTime"
+                },
+                "toDateTime": {
+                  "type": "string",
+                  "description": "toDateTime"
+                }
+              },
+              "default": {
+                "fromDateTime": "2023-02-01T10:45:09",
+                "toDateTime": "2023-02-03T10:45:09"
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "GetEnquiryStatusChangesResponse": {
+                  "type": "object",
+                  "properties": {
+                    "UpdatedEnquiry": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "EnquiryNumber": {
+                            "type": "string",
+                            "description": "EnquiryNumber"
+                          },
+                          "EnquiryStatusLog": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "EnquiryLogNumber": {
+                                  "type": "string",
+                                  "description": "EnquiryLogNumber"
+                                },
+                                "EnquiryStatusCode": {
+                                  "type": "string",
+                                  "description": "EnquiryStatusCode"
+                                },
+                                "EnquiryStatusName": {
+                                  "type": "string",
+                                  "description": "EnquiryStatusName"
+                                },
+                                "AssignedOfficerCode": {
+                                  "type": "string",
+                                  "description": "AssignedOfficerCode"
+                                },
+                                "AssignedOfficerName": {
+                                  "type": "string",
+                                  "description": "AssignedOfficerName"
+                                },
+                                "LoggedTime": {
+                                  "type": "string",
+                                  "description": "LoggedTime"
+                                },
+                                "LogEffectiveTime": {
+                                  "type": "string",
+                                  "description": "LogEffectiveTime"
+                                },
+                                "LoggedByUserName": {
+                                  "type": "string",
+                                  "description": "LoggedByUserName"
+                                },
+                                "LoggedByUserId": {
+                                  "type": "string",
+                                  "description": "LoggedByUserId"
+                                },
+                                "StatusFollowUpTime": {
+                                  "type": "string",
+                                  "description": "StatusFollowUpTime"
+                                },
+                                "AssignedOfficerPhone": {
+                                  "type": "string",
+                                  "description": "AssignedOfficerPhone"
+                                },
+                                "StatusLogNotes": {
+                                  "type": "string",
+                                  "description": "StatusLogNotes"
+                                }
+                              }
+                            },
+                            "description": "EnquiryStatusLog"
+                          }
+                        }
+                      },
+                      "description": "UpdatedEnquiry"
+                    }
+                  },
+                  "description": "GetEnquiryStatusChangesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GetEnquiryStatus": {
+      "post": {
+        "summary": "Confirm Get Enquiry Status built with XSD Classes",
+        "description": "Confirm Get Enquiry Status built with XSD Classes",
+        "operationId": "ConfirmGetEnquiryStatusBuiltWithXsdClasses",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "enquiryNumber": {
+                  "type": "string",
+                  "description": "enquiryNumber"
+                }
+              },
+              "default": {
+                "enquiryNumber": "2227705"
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Enquiry": {
+                  "type": "object",
+                  "properties": {
+                    "EnquiryNumber": {
+                      "type": "string",
+                      "description": "EnquiryNumber"
+                    },
+                    "ServiceCode": {
+                      "type": "string",
+                      "description": "ServiceCode"
+                    },
+                    "ServiceName": {
+                      "type": "string",
+                      "description": "ServiceName"
+                    },
+                    "SubjectCode": {
+                      "type": "string",
+                      "description": "SubjectCode"
+                    },
+                    "SubjectName": {
+                      "type": "string",
+                      "description": "SubjectName"
+                    },
+                    "EnquiryDescription": {
+                      "type": "string",
+                      "description": "EnquiryDescription"
+                    },
+                    "EnquiryLocation": {
+                      "type": "string",
+                      "description": "EnquiryLocation"
+                    },
+                    "EnquiryLogNumber": {
+                      "type": "string",
+                      "description": "EnquiryLogNumber"
+                    },
+                    "EnquiryStatusCode": {
+                      "type": "string",
+                      "description": "EnquiryStatusCode"
+                    },
+                    "EnquiryStatusName": {
+                      "type": "string",
+                      "description": "EnquiryStatusName"
+                    },
+                    "AssignedOfficerCode": {
+                      "type": "string",
+                      "description": "AssignedOfficerCode"
+                    },
+                    "AssignedOfficerName": {
+                      "type": "string",
+                      "description": "AssignedOfficerName"
+                    },
+                    "LoggedTime": {
+                      "type": "string",
+                      "description": "LoggedTime"
+                    },
+                    "LogEffectiveTime": {
+                      "type": "string",
+                      "description": "LogEffectiveTime"
+                    },
+                    "SiteCode": {
+                      "type": "string",
+                      "description": "SiteCode"
+                    },
+                    "SiteName": {
+                      "type": "string",
+                      "description": "SiteName"
+                    },
+                    "SiteTownName": {
+                      "type": "string",
+                      "description": "SiteTownName"
+                    },
+                    "SiteCountyName": {
+                      "type": "string",
+                      "description": "SiteCountyName"
+                    },
+                    "SiteClassCode": {
+                      "type": "string",
+                      "description": "SiteClassCode"
+                    },
+                    "SiteClassName": {
+                      "type": "string",
+                      "description": "SiteClassName"
+                    },
+                    "SiteLogNotes": {
+                      "type": "string",
+                      "description": "SiteLogNotes"
+                    },
+                    "EnquiryLogTime": {
+                      "type": "string",
+                      "description": "EnquiryLogTime"
+                    },
+                    "EnquiryClassCode": {
+                      "type": "string",
+                      "description": "EnquiryClassCode"
+                    },
+                    "EnquiryClassName": {
+                      "type": "string",
+                      "description": "EnquiryClassName"
+                    },
+                    "ContactName": {
+                      "type": "string",
+                      "description": "ContactName"
+                    },
+                    "LoggedByUserName": {
+                      "type": "string",
+                      "description": "LoggedByUserName"
+                    },
+                    "LoggedByUserId": {
+                      "type": "string",
+                      "description": "LoggedByUserId"
+                    },
+                    "AddressReference": {
+                      "type": "string",
+                      "description": "AddressReference"
+                    },
+                    "EnquiryAttribute": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "EnqAttribTypeCode": {
+                            "type": "string",
+                            "description": "EnqAttribTypeCode"
+                          },
+                          "EnqAttribValueCode": {
+                            "type": "string",
+                            "description": "EnqAttribValueCode"
+                          },
+                          "EnqAttribDateValue": {
+                            "type": "string",
+                            "description": "EnqAttribDateValue"
+                          }
+                        }
+                      },
+                      "description": "EnquiryAttribute"
+                    },
+                    "EnquiryStatusLog": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "EnquiryLogNumber": {
+                            "type": "string",
+                            "description": "EnquiryLogNumber"
+                          },
+                          "EnquiryStatusCode": {
+                            "type": "string",
+                            "description": "EnquiryStatusCode"
+                          },
+                          "EnquiryStatusName": {
+                            "type": "string",
+                            "description": "EnquiryStatusName"
+                          },
+                          "AssignedOfficerCode": {
+                            "type": "string",
+                            "description": "AssignedOfficerCode"
+                          },
+                          "AssignedOfficerName": {
+                            "type": "string",
+                            "description": "AssignedOfficerName"
+                          },
+                          "LoggedTime": {
+                            "type": "string",
+                            "description": "LoggedTime"
+                          },
+                          "LogEffectiveTime": {
+                            "type": "string",
+                            "description": "LogEffectiveTime"
+                          },
+                          "StatusFollowUpTime": {
+                            "type": "string",
+                            "description": "StatusFollowUpTime"
+                          },
+                          "LoggedByUserName": {
+                            "type": "string",
+                            "description": "LoggedByUserName"
+                          },
+                          "LoggedByUserId": {
+                            "type": "string",
+                            "description": "LoggedByUserId"
+                          },
+                          "StatusLogNotes": {
+                            "type": "string",
+                            "description": "StatusLogNotes"
+                          }
+                        }
+                      },
+                      "description": "EnquiryStatusLog"
+                    }
+                  },
+                  "description": "Enquiry"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/NewEnquiry": {
+      "post": {
+        "summary": "New Enquiry",
+        "description": "New Enquiry",
+        "operationId": "NewEnquiry",
+        "parameters": [
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "subject": {
+                  "type": "string",
+                  "description": "subject"
+                },
+                "service": {
+                  "type": "string",
+                  "description": "service"
+                },
+                "usrn": {
+                  "type": "string",
+                  "description": "usrn"
+                },
+                "caseId": {
+                  "type": "string",
+                  "description": "caseId"
+                },
+                "assetId": {
+                  "type": "string",
+                  "description": "assetId"
+                },
+                "customerCode": {
+                  "type": "string",
+                  "description": "customerCode"
+                },
+                "enquiryMethod": {
+                  "type": "string",
+                  "description": "enquiryMethod"
+                },
+                "contactPoint": {
+                  "type": "string",
+                  "description": "contactPoint"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "description"
+                },
+                "location": {
+                  "type": "string",
+                  "description": "location"
+                },
+                "x": {
+                  "type": "string",
+                  "description": "x"
+                },
+                "y": {
+                  "type": "string",
+                  "description": "y"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "title"
+                },
+                "forename": {
+                  "type": "string",
+                  "description": "forename"
+                },
+                "surname": {
+                  "type": "string",
+                  "description": "surname"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "email"
+                },
+                "mobile": {
+                  "type": "string",
+                  "description": "mobile"
+                },
+                "addressLine": {
+                  "type": "string",
+                  "description": "addressLine"
+                },
+                "city": {
+                  "type": "string",
+                  "description": "city"
+                },
+                "postCode": {
+                  "type": "string",
+                  "description": "postCode"
+                },
+                "attributes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "attributeCode": {
+                        "type": "string",
+                        "description": "attributeCode"
+                      },
+                      "attributeValue": {
+                        "type": "string",
+                        "description": "attributeValue"
+                      },
+                      "attributeType": {
+                        "type": "string",
+                        "description": "attributeType"
+                      }
+                    }
+                  },
+                  "description": "attributes"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Enquiry": {
+                  "type": "object",
+                  "properties": {
+                    "EnquiryNumber": {
+                      "type": "string",
+                      "description": "EnquiryNumber"
+                    },
+                    "ServiceCode": {
+                      "type": "string",
+                      "description": "ServiceCode"
+                    },
+                    "ServiceName": {
+                      "type": "string",
+                      "description": "ServiceName"
+                    },
+                    "SubjectCode": {
+                      "type": "string",
+                      "description": "SubjectCode"
+                    },
+                    "SubjectName": {
+                      "type": "string",
+                      "description": "SubjectName"
+                    },
+                    "EnquiryDescription": {
+                      "type": "string",
+                      "description": "EnquiryDescription"
+                    },
+                    "EnquiryLogNumber": {
+                      "type": "string",
+                      "description": "EnquiryLogNumber"
+                    },
+                    "EnquiryStatusCode": {
+                      "type": "string",
+                      "description": "EnquiryStatusCode"
+                    },
+                    "EnquiryStatusName": {
+                      "type": "string",
+                      "description": "EnquiryStatusName"
+                    },
+                    "AssignedOfficerCode": {
+                      "type": "string",
+                      "description": "AssignedOfficerCode"
+                    },
+                    "AssignedOfficerName": {
+                      "type": "string",
+                      "description": "AssignedOfficerName"
+                    },
+                    "LoggedTime": {
+                      "type": "string",
+                      "description": "LoggedTime"
+                    },
+                    "LogEffectiveTime": {
+                      "type": "string",
+                      "description": "LogEffectiveTime"
+                    },
+                    "SiteCode": {
+                      "type": "string",
+                      "description": "SiteCode"
+                    },
+                    "SiteName": {
+                      "type": "string",
+                      "description": "SiteName"
+                    },
+                    "SiteTownName": {
+                      "type": "string",
+                      "description": "SiteTownName"
+                    },
+                    "SiteCountyName": {
+                      "type": "string",
+                      "description": "SiteCountyName"
+                    },
+                    "SiteClassCode": {
+                      "type": "string",
+                      "description": "SiteClassCode"
+                    },
+                    "SiteClassName": {
+                      "type": "string",
+                      "description": "SiteClassName"
+                    },
+                    "StatusFollowUpTime": {
+                      "type": "string",
+                      "description": "StatusFollowUpTime"
+                    },
+                    "EnquiryLogTime": {
+                      "type": "string",
+                      "description": "EnquiryLogTime"
+                    },
+                    "EnquiryClassCode": {
+                      "type": "string",
+                      "description": "EnquiryClassCode"
+                    },
+                    "EnquiryClassName": {
+                      "type": "string",
+                      "description": "EnquiryClassName"
+                    },
+                    "LoggedByUserName": {
+                      "type": "string",
+                      "description": "LoggedByUserName"
+                    },
+                    "LoggedByUserId": {
+                      "type": "string",
+                      "description": "LoggedByUserId"
+                    },
+                    "EnquiryAttribute": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "EnqAttribTypeCode": {
+                            "type": "string",
+                            "description": "EnqAttribTypeCode"
+                          },
+                          "EnqAttribValueCode": {
+                            "type": "string",
+                            "description": "EnqAttribValueCode"
+                          },
+                          "EnqAttribStringValue": {
+                            "type": "string",
+                            "description": "EnqAttribStringValue"
+                          }
+                        }
+                      },
+                      "description": "EnquiryAttribute"
+                    }
+                  },
+                  "description": "Enquiry"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}

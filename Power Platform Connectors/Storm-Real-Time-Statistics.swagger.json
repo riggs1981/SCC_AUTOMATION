@@ -1,0 +1,109 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Storm",
+    "description": "Storm"
+  },
+  "host": "sccagentavailability.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/GetAgentStatistics": {
+      "post": {
+        "summary": "Get Real Time Statistics",
+        "description": "Get Real Time Statistics",
+        "operationId": "GetRealTimeStatistics",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "type"
+                },
+                "identifier": {
+                  "type": "string",
+                  "description": "identifier"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "description": "success"
+                },
+                "failureReason": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "failureReason"
+                },
+                "result": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "type"
+                      },
+                      "identifier": {
+                        "type": "string",
+                        "description": "identifier"
+                      },
+                      "statistic": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "name"
+                            },
+                            "value": {
+                              "type": "string",
+                              "description": "value"
+                            }
+                          }
+                        },
+                        "description": "statistic"
+                      },
+                      "invalidReasonSpecified": {
+                        "type": "boolean",
+                        "description": "invalidReasonSpecified"
+                      }
+                    }
+                  },
+                  "description": "result"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}

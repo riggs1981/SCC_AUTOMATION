@@ -1,0 +1,1263 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "BigChange (Azure)",
+    "description": "Connector for integration with the Big Change Jobs Watch system"
+  },
+  "host": "scc-bigchange-sen.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/GetContact": {
+      "post": {
+        "summary": "Get Contact",
+        "description": "Get Contact",
+        "operationId": "GetContact",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "contactId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "contactId"
+                }
+              },
+              "default": {
+                "contactId": 31931174
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Code"
+                },
+                "Result": {
+                  "type": "object",
+                  "properties": {
+                    "Id": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "Id"
+                    },
+                    "GroupId": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "GroupId"
+                    },
+                    "Name": {
+                      "type": "string",
+                      "description": "Name"
+                    },
+                    "Street": {
+                      "type": "string",
+                      "description": "Street"
+                    },
+                    "PostCode": {
+                      "type": "string",
+                      "description": "PostCode"
+                    },
+                    "Town": {
+                      "type": "string",
+                      "description": "Town"
+                    },
+                    "Country": {
+                      "type": "string",
+                      "description": "Country"
+                    },
+                    "Person": {
+                      "type": "string",
+                      "description": "Person"
+                    },
+                    "Phone": {
+                      "type": "string",
+                      "description": "Phone"
+                    },
+                    "Email": {
+                      "type": "string",
+                      "description": "Email"
+                    },
+                    "Extra": {
+                      "type": "string",
+                      "description": "Extra"
+                    },
+                    "Lat": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "Lat"
+                    },
+                    "Lng": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "Lng"
+                    },
+                    "Flagged": {
+                      "type": "boolean",
+                      "description": "Flagged"
+                    },
+                    "ParentId": {
+                      "type": "integer",
+                      "description": "ParentId",
+                      "title": "",
+                      "format": "int32"
+                    },
+                    "ParentFlagged": {
+                      "type": "boolean",
+                      "description": "ParentFlagged"
+                    },
+                    "ParentName": {
+                      "type": "string",
+                      "description": "ParentName"
+                    },
+                    "ParentPerson": {
+                      "type": "string",
+                      "description": "ParentPerson"
+                    },
+                    "ParentPhone": {
+                      "type": "string",
+                      "description": "ParentPhone"
+                    },
+                    "ContactReference": {
+                      "type": "string",
+                      "description": "ContactReference"
+                    },
+                    "ParentReference": {
+                      "type": "string",
+                      "description": "ParentReference"
+                    },
+                    "AccountReference": {
+                      "type": "string",
+                      "description": "AccountReference"
+                    },
+                    "AccountType": {
+                      "type": "string",
+                      "description": "AccountType"
+                    },
+                    "FlaggedReason": {
+                      "type": "string",
+                      "description": "FlaggedReason"
+                    },
+                    "ParentFlaggedReason": {
+                      "type": "string",
+                      "description": "ParentFlaggedReason"
+                    },
+                    "OnStop": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "OnStop"
+                    },
+                    "OnStopReason": {
+                      "type": "string",
+                      "description": "OnStopReason"
+                    },
+                    "OnStopDate": {
+                      "type": "string",
+                      "description": "OnStopDate"
+                    },
+                    "OnStopUserId": {
+                      "type": "string",
+                      "description": "OnStopUserId"
+                    },
+                    "ContactExtraDelay2Pay": {
+                      "type": "string",
+                      "description": "ContactExtraDelay2Pay"
+                    },
+                    "ContactExtraQuoteValidity": {
+                      "type": "string",
+                      "description": "ContactExtraQuoteValidity"
+                    },
+                    "ContactExtraUTR": {
+                      "type": "string",
+                      "description": "ContactExtraUTR"
+                    },
+                    "ContactExtraVatNum": {
+                      "type": "string",
+                      "description": "ContactExtraVatNum"
+                    },
+                    "ContactExtraCompanyRegistrationNumber": {
+                      "type": "string",
+                      "description": "ContactExtraCompanyRegistrationNumber"
+                    },
+                    "ContactExtraOrgType": {
+                      "type": "string",
+                      "description": "ContactExtraOrgType"
+                    },
+                    "ContactExtraPrimarySICCode": {
+                      "type": "string",
+                      "description": "ContactExtraPrimarySICCode"
+                    },
+                    "ContactRadius": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "ContactRadius"
+                    },
+                    "ContactCustomFields": {
+                      "type": "object",
+                      "properties": {
+                        "244856": {
+                          "type": "string",
+                          "description": "244856"
+                        },
+                        "244929": {
+                          "type": "string",
+                          "description": "244929"
+                        },
+                        "253941": {
+                          "type": "string",
+                          "description": "253941"
+                        },
+                        "253942": {
+                          "type": "string",
+                          "description": "253942"
+                        },
+                        "253943": {
+                          "type": "string",
+                          "description": "253943"
+                        },
+                        "253946": {
+                          "type": "string",
+                          "description": "253946"
+                        },
+                        "253947": {
+                          "type": "string",
+                          "description": "253947"
+                        }
+                      },
+                      "description": "ContactCustomFields"
+                    },
+                    "ContactCreationDate": {
+                      "type": "string",
+                      "description": "ContactCreationDate"
+                    },
+                    "Cust_SEN": {
+                      "type": "string",
+                      "description": "Cust_SEN"
+                    },
+                    "Cust_Number_of_SEN_Routes": {
+                      "type": "string",
+                      "description": "Cust_Number_of_SEN_Routes"
+                    },
+                    "Cust_Weekly_cost_of_SEN_Routes": {
+                      "type": "string",
+                      "description": "Cust_Weekly_cost_of_SEN_Routes"
+                    },
+                    "Cust_l": {
+                      "type": "string",
+                      "description": "Cust_l"
+                    },
+                    "Cust_COLLEGE": {
+                      "type": "string",
+                      "description": "Cust_COLLEGE"
+                    },
+                    "Cust_l_2": {
+                      "type": "string",
+                      "description": "Cust_l_2"
+                    },
+                    "Cust_INCLUSION": {
+                      "type": "string",
+                      "description": "Cust_INCLUSION"
+                    }
+                  },
+                  "description": "Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GetContactGroups": {
+      "post": {
+        "summary": "Get Contact Groups",
+        "description": "Get Contact Groups",
+        "operationId": "GetContactGroups",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Code"
+                },
+                "Result": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "description": "label"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      }
+                    }
+                  },
+                  "description": "Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GetGroupContactList": {
+      "post": {
+        "summary": "Get Group Contact List",
+        "description": "Get Group Contact List",
+        "operationId": "GetGroupContactList",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "groupId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "groupId"
+                }
+              },
+              "default": {
+                "groupId": 82829
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Code"
+                },
+                "Result": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Id"
+                      },
+                      "GroupId": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "GroupId"
+                      },
+                      "Name": {
+                        "type": "string",
+                        "description": "Name"
+                      },
+                      "Street": {
+                        "type": "string",
+                        "description": "Street"
+                      },
+                      "PostCode": {
+                        "type": "string",
+                        "description": "PostCode"
+                      },
+                      "Town": {
+                        "type": "string",
+                        "description": "Town"
+                      },
+                      "Country": {
+                        "type": "string",
+                        "description": "Country"
+                      },
+                      "Person": {
+                        "type": "string",
+                        "description": "Person"
+                      },
+                      "Phone": {
+                        "type": "string",
+                        "description": "Phone"
+                      },
+                      "Email": {
+                        "type": "string",
+                        "description": "Email"
+                      },
+                      "Extra": {
+                        "type": "string",
+                        "description": "Extra"
+                      },
+                      "Lat": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "Lat"
+                      },
+                      "Lng": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "Lng"
+                      },
+                      "Flagged": {
+                        "type": "boolean",
+                        "description": "Flagged"
+                      },
+                      "ParentId": {
+                        "type": "string",
+                        "description": "ParentId"
+                      },
+                      "FlaggedReason": {
+                        "type": "boolean",
+                        "description": "FlaggedReason"
+                      },
+                      "Group": {
+                        "type": "string",
+                        "description": "Group"
+                      },
+                      "DeletionDate": {
+                        "type": "string",
+                        "description": "DeletionDate"
+                      },
+                      "ExpiryDate": {
+                        "type": "string",
+                        "description": "ExpiryDate"
+                      },
+                      "Radius": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Radius"
+                      },
+                      "contactParentReference": {
+                        "type": "string",
+                        "description": "contactParentReference"
+                      },
+                      "contactParentName": {
+                        "type": "string",
+                        "description": "contactParentName"
+                      },
+                      "ContactReference": {
+                        "type": "string",
+                        "description": "ContactReference"
+                      },
+                      "OnStop": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "OnStop"
+                      }
+                    }
+                  },
+                  "description": "Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DeleteContact": {
+      "post": {
+        "summary": "Delete Contact",
+        "description": "Delete Contact",
+        "operationId": "DeleteContact",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "contactId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "contactId"
+                }
+              },
+              "default": {
+                "contactId": 31899022
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Code"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/SearchContacts": {
+      "post": {
+        "summary": "Search Contacts",
+        "description": "Search Contacts",
+        "operationId": "SearchContacts",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "searchTerm": {
+                  "type": "string",
+                  "description": "searchTerm"
+                }
+              },
+              "default": {
+                "searchTerm": "TheCat"
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Code"
+                },
+                "Result": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "description": "label"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "id"
+                      }
+                    }
+                  },
+                  "description": "Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/AddContact": {
+      "post": {
+        "summary": "Create Contact",
+        "description": "Create Contact",
+        "operationId": "CreateContact",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "title"
+                },
+                "forename": {
+                  "type": "string",
+                  "description": "forename"
+                },
+                "surname": {
+                  "type": "string",
+                  "description": "surname"
+                },
+                "addressLine1": {
+                  "type": "string",
+                  "description": "addressLine1"
+                },
+                "town": {
+                  "type": "string",
+                  "description": "town"
+                },
+                "postcode": {
+                  "type": "string",
+                  "description": "postcode"
+                },
+                "longitude": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "longitude"
+                },
+                "latitude": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "latitude"
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "phone"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "email"
+                },
+                "contactNote": {
+                  "type": "string",
+                  "description": "contactNote"
+                },
+                "contactGroup": {
+                  "type": "string",
+                  "description": "contactGroup"
+                },
+                "customFields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "description": "key"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "customFields"
+                }
+              },
+              "default": {
+                "title": "Mr",
+                "forename": "Custard",
+                "surname": "TheCat",
+                "addressLine1": "39 Woolley Wood Road",
+                "town": "Sheffield",
+                "postcode": "S5 0UF",
+                "longitude": -1.43749,
+                "latitude": 53.4353,
+                "phone": "07777777777",
+                "email": "test@test.com",
+                "contactNote": "Created via middleware woooo",
+                "contactGroup": "SEN Transport Applicants",
+                "customFields": [
+                  {
+                    "key": "Contact Title",
+                    "value": "Mr"
+                  }
+                ]
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Code",
+                  "title": "Code"
+                },
+                "Result": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Result",
+                  "title": "Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/UpdateContact": {
+      "post": {
+        "summary": "Update Contact",
+        "description": "Update Contact",
+        "operationId": "UpdateContact",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "title"
+                },
+                "forename": {
+                  "type": "string",
+                  "description": "forename"
+                },
+                "surname": {
+                  "type": "string",
+                  "description": "surname"
+                },
+                "addressLine1": {
+                  "type": "string",
+                  "description": "addressLine1"
+                },
+                "town": {
+                  "type": "string",
+                  "description": "town"
+                },
+                "postcode": {
+                  "type": "string",
+                  "description": "postcode"
+                },
+                "longitude": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "longitude"
+                },
+                "latitude": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "latitude"
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "phone"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "email"
+                },
+                "contactNote": {
+                  "type": "string",
+                  "description": "contactNote"
+                },
+                "contactGroup": {
+                  "type": "string",
+                  "description": "contactGroup"
+                },
+                "contactId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "contactId"
+                },
+                "customFields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "description": "key"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "customFields"
+                }
+              },
+              "default": {
+                "title": "Miss",
+                "forename": "Custard",
+                "surname": "TheCat",
+                "addressLine1": "39 Woolley Wood Road",
+                "town": "Sheffield",
+                "postcode": "S5 0UF",
+                "longitude": -1.43749,
+                "latitude": 53.4353,
+                "phone": "07777777777",
+                "email": "test@test.com",
+                "contactNote": "Middleware update test",
+                "contactGroup": "SEN Transport Applicants",
+                "contactId": 31930898,
+                "customFields": [
+                  {
+                    "key": "Contact Title",
+                    "value": "Miss"
+                  }
+                ]
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Code"
+                },
+                "Result": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CreateJob": {
+      "post": {
+        "summary": "Create Job",
+        "description": "Create Job",
+        "operationId": "CreateJob",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "JobType": {
+                  "type": "string",
+                  "description": "JobType"
+                },
+                "jobGroup": {
+                  "type": "string",
+                  "description": "jobGroup"
+                },
+                "jobCategory": {
+                  "type": "string",
+                  "description": "jobCategory"
+                },
+                "contactId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "contactId"
+                },
+                "jobDescription": {
+                  "type": "string",
+                  "description": "jobDescription"
+                },
+                "jobStart": {
+                  "type": "string",
+                  "description": "jobStart"
+                },
+                "resourceId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "resourceId"
+                },
+                "customFields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "description": "key"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "customFields"
+                }
+              },
+              "default": {
+                "JobType": "SEN Transport",
+                "jobGroup": "sen_jobs",
+                "jobCategory": "Arrange Transport",
+                "contactId": 31931174,
+                "jobDescription": "Job created via azure",
+                "jobStart": "2023-09-06T00:00:00",
+                "resourceId": 312437,
+                "customFields": [
+                  {
+                    "key": "",
+                    "value": ""
+                  }
+                ]
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Code"
+                },
+                "Result": {
+                  "type": "object",
+                  "properties": {
+                    "jobid": {
+                      "type": "string",
+                      "description": "jobid"
+                    }
+                  },
+                  "description": "Result"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/AddRelatedContact": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Code"
+                },
+                "Result": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Result"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create Related Contact",
+        "description": "Creates a contact that is related to another contact via a contact ID",
+        "operationId": "CreateRelatedContact",
+        "parameters": [
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "title"
+                },
+                "forename": {
+                  "type": "string",
+                  "description": "forename"
+                },
+                "surname": {
+                  "type": "string",
+                  "description": "surname"
+                },
+                "addressLine1": {
+                  "type": "string",
+                  "description": "addressLine1"
+                },
+                "town": {
+                  "type": "string",
+                  "description": "town"
+                },
+                "postcode": {
+                  "type": "string",
+                  "description": "postcode"
+                },
+                "longitude": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "longitude"
+                },
+                "latitude": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "latitude"
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "phone"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "email"
+                },
+                "contactNote": {
+                  "type": "string",
+                  "description": "contactNote"
+                },
+                "contactGroup": {
+                  "type": "string",
+                  "description": "contactGroup"
+                },
+                "relatedContactId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "relatedContactId"
+                },
+                "customFields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "description": "key"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value"
+                      }
+                    }
+                  },
+                  "description": "customFields"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/api/AddPersonToContact": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Code"
+                },
+                "Result": {
+                  "type": "string",
+                  "description": "Result"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "summary": "Add person to contact",
+        "description": "Adds a person to a \"Big Change\" contact",
+        "operationId": "AddPersonToContact",
+        "parameters": [
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "title"
+                },
+                "forename": {
+                  "type": "string",
+                  "description": "forename"
+                },
+                "surname": {
+                  "type": "string",
+                  "description": "surname"
+                },
+                "phone": {
+                  "type": "string",
+                  "description": "phone"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "email"
+                },
+                "contactId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "contactId"
+                },
+                "position": {
+                  "type": "string",
+                  "description": "position"
+                },
+                "department": {
+                  "type": "string",
+                  "description": "department"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/api/ListPeopleForContact": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Code": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Code"
+                },
+                "Result": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Id": {
+                        "type": "string",
+                        "description": "Id"
+                      },
+                      "Title": {
+                        "type": "string",
+                        "description": "Title"
+                      },
+                      "Name": {
+                        "type": "string",
+                        "description": "Name"
+                      },
+                      "Email": {
+                        "type": "string",
+                        "description": "Email"
+                      },
+                      "Position": {
+                        "type": "string",
+                        "description": "Position"
+                      },
+                      "Department": {
+                        "type": "string",
+                        "description": "Department"
+                      },
+                      "Phone": {
+                        "type": "string",
+                        "description": "Phone"
+                      },
+                      "Landline": {
+                        "type": "string",
+                        "description": "Landline"
+                      },
+                      "LandlineExtension": {
+                        "type": "string",
+                        "description": "LandlineExtension"
+                      },
+                      "Flags": {
+                        "type": "array",
+                        "items": {},
+                        "description": "Flags"
+                      }
+                    }
+                  },
+                  "description": "Result"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "summary": "List people associated with contact",
+        "description": "List people associated with a Big Change contact",
+        "operationId": "ListPeopleForContact",
+        "parameters": [
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "contactId": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "contactId"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-functions-key"
+    }
+  },
+  "security": [],
+  "tags": []
+}

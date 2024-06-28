@@ -1,0 +1,1629 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "SCC Gov Pay Collection",
+    "description": "SCC Gov Pay Collection to support low code payments and reconciliation."
+  },
+  "host": "publicapi.payments.service.gov.uk",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/payments": {
+      "post": {
+        "summary": "SCC Custom Payment",
+        "description": "SCC Custom Payment",
+        "operationId": "SccCustomPayment",
+        "parameters": [
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "amount"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "description"
+                },
+                "reference": {
+                  "type": "string",
+                  "description": "reference"
+                },
+                "return_url": {
+                  "type": "string",
+                  "description": "return_url"
+                },
+                "delayed_capture": {
+                  "type": "boolean",
+                  "description": "delayed_capture"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "email"
+                },
+                "language": {
+                  "type": "string",
+                  "description": "language"
+                },
+                "metadata": {
+                  "type": "object",
+                  "properties": {
+                    "Business Unit": {
+                      "type": "string",
+                      "description": "Business Unit"
+                    },
+                    "Fund Code": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "Fund Code"
+                    },
+                    "vatCode": {
+                      "type": "string",
+                      "description": "vatCode"
+                    }
+                  },
+                  "description": "metadata"
+                },
+                "moto": {
+                  "type": "boolean",
+                  "description": "moto"
+                },
+                "prefilled_cardholder_details": {
+                  "type": "object",
+                  "properties": {
+                    "billing_address": {
+                      "type": "object",
+                      "properties": {
+                        "city": {
+                          "type": "string",
+                          "description": "city"
+                        },
+                        "country": {
+                          "type": "string",
+                          "description": "country"
+                        },
+                        "line1": {
+                          "type": "string",
+                          "description": "line1"
+                        },
+                        "line2": {
+                          "type": "string",
+                          "description": "line2"
+                        },
+                        "postcode": {
+                          "type": "string",
+                          "description": "postcode"
+                        }
+                      },
+                      "description": "billing_address"
+                    },
+                    "cardholder_name": {
+                      "type": "string",
+                      "description": "cardholder_name"
+                    }
+                  },
+                  "description": "prefilled_cardholder_details"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "201",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "amount"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "description"
+                },
+                "reference": {
+                  "type": "string",
+                  "description": "reference"
+                },
+                "language": {
+                  "type": "string",
+                  "description": "language"
+                },
+                "state": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "finished": {
+                      "type": "boolean",
+                      "description": "finished"
+                    }
+                  },
+                  "description": "state"
+                },
+                "payment_id": {
+                  "type": "string",
+                  "description": "payment_id"
+                },
+                "payment_provider": {
+                  "type": "string",
+                  "description": "payment_provider"
+                },
+                "created_date": {
+                  "type": "string",
+                  "description": "created_date"
+                },
+                "refund_summary": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "amount_available": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "amount_available"
+                    },
+                    "amount_submitted": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "amount_submitted"
+                    }
+                  },
+                  "description": "refund_summary"
+                },
+                "settlement_summary": {
+                  "type": "object",
+                  "properties": {},
+                  "description": "settlement_summary"
+                },
+                "delayed_capture": {
+                  "type": "boolean",
+                  "description": "delayed_capture"
+                },
+                "moto": {
+                  "type": "boolean",
+                  "description": "moto"
+                },
+                "return_url": {
+                  "type": "string",
+                  "description": "return_url"
+                },
+                "authorisation_mode": {
+                  "type": "string",
+                  "description": "authorisation_mode"
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "self"
+                    },
+                    "next_url": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "next_url"
+                    },
+                    "next_url_post": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "description": "type"
+                        },
+                        "params": {
+                          "type": "object",
+                          "properties": {
+                            "chargeTokenId": {
+                              "type": "string",
+                              "description": "chargeTokenId"
+                            }
+                          },
+                          "description": "params"
+                        },
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "next_url_post"
+                    },
+                    "events": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "events"
+                    },
+                    "refunds": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "refunds"
+                    },
+                    "cancel": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "cancel"
+                    }
+                  },
+                  "description": "_links"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "amount"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "description"
+                },
+                "reference": {
+                  "type": "string",
+                  "description": "reference"
+                },
+                "language": {
+                  "type": "string",
+                  "description": "language"
+                },
+                "state": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "finished": {
+                      "type": "boolean",
+                      "description": "finished"
+                    }
+                  },
+                  "description": "state"
+                },
+                "payment_id": {
+                  "type": "string",
+                  "description": "payment_id"
+                },
+                "payment_provider": {
+                  "type": "string",
+                  "description": "payment_provider"
+                },
+                "created_date": {
+                  "type": "string",
+                  "description": "created_date"
+                },
+                "refund_summary": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "amount_available": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "amount_available"
+                    },
+                    "amount_submitted": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "amount_submitted"
+                    }
+                  },
+                  "description": "refund_summary"
+                },
+                "settlement_summary": {
+                  "type": "object",
+                  "properties": {},
+                  "description": "settlement_summary"
+                },
+                "delayed_capture": {
+                  "type": "boolean",
+                  "description": "delayed_capture"
+                },
+                "moto": {
+                  "type": "boolean",
+                  "description": "moto"
+                },
+                "return_url": {
+                  "type": "string",
+                  "description": "return_url"
+                },
+                "authorisation_mode": {
+                  "type": "string",
+                  "description": "authorisation_mode"
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "self"
+                    },
+                    "next_url": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "next_url"
+                    },
+                    "next_url_post": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "description": "type"
+                        },
+                        "params": {
+                          "type": "object",
+                          "properties": {
+                            "chargeTokenId": {
+                              "type": "string",
+                              "description": "chargeTokenId"
+                            }
+                          },
+                          "description": "params"
+                        },
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "next_url_post"
+                    },
+                    "events": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "events"
+                    },
+                    "refunds": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "refunds"
+                    },
+                    "cancel": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "cancel"
+                    }
+                  },
+                  "description": "_links"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "total"
+                },
+                "count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "count"
+                },
+                "page": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "page"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "amount"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "description"
+                      },
+                      "reference": {
+                        "type": "string",
+                        "description": "reference"
+                      },
+                      "language": {
+                        "type": "string",
+                        "description": "language"
+                      },
+                      "metadata": {
+                        "type": "object",
+                        "properties": {
+                          "Fund Code": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "Fund Code"
+                          },
+                          "Business Unit": {
+                            "type": "string",
+                            "description": "Business Unit"
+                          }
+                        },
+                        "description": "metadata"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "email"
+                      },
+                      "state": {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "string",
+                            "description": "status"
+                          },
+                          "finished": {
+                            "type": "boolean",
+                            "description": "finished"
+                          }
+                        },
+                        "description": "state"
+                      },
+                      "payment_id": {
+                        "type": "string",
+                        "description": "payment_id"
+                      },
+                      "payment_provider": {
+                        "type": "string",
+                        "description": "payment_provider"
+                      },
+                      "created_date": {
+                        "type": "string",
+                        "description": "created_date"
+                      },
+                      "refund_summary": {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "string",
+                            "description": "status"
+                          },
+                          "amount_available": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "amount_available"
+                          },
+                          "amount_submitted": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "amount_submitted"
+                          }
+                        },
+                        "description": "refund_summary"
+                      },
+                      "settlement_summary": {
+                        "type": "object",
+                        "properties": {
+                          "capture_submit_time": {
+                            "type": "string",
+                            "description": "capture_submit_time"
+                          },
+                          "captured_date": {
+                            "type": "string",
+                            "description": "captured_date"
+                          },
+                          "settled_date": {
+                            "type": "string",
+                            "description": "settled_date"
+                          }
+                        },
+                        "description": "settlement_summary"
+                      },
+                      "card_details": {
+                        "type": "object",
+                        "properties": {
+                          "last_digits_card_number": {
+                            "type": "string",
+                            "description": "last_digits_card_number"
+                          },
+                          "first_digits_card_number": {
+                            "type": "string",
+                            "description": "first_digits_card_number"
+                          },
+                          "cardholder_name": {
+                            "type": "string",
+                            "description": "cardholder_name"
+                          },
+                          "expiry_date": {
+                            "type": "string",
+                            "description": "expiry_date"
+                          },
+                          "billing_address": {
+                            "type": "object",
+                            "properties": {
+                              "line1": {
+                                "type": "string",
+                                "description": "line1"
+                              },
+                              "line2": {
+                                "type": "string",
+                                "description": "line2"
+                              },
+                              "postcode": {
+                                "type": "string",
+                                "description": "postcode"
+                              },
+                              "city": {
+                                "type": "string",
+                                "description": "city"
+                              },
+                              "country": {
+                                "type": "string",
+                                "description": "country"
+                              }
+                            },
+                            "description": "billing_address"
+                          },
+                          "card_brand": {
+                            "type": "string",
+                            "description": "card_brand"
+                          },
+                          "card_type": {
+                            "type": "string",
+                            "description": "card_type"
+                          }
+                        },
+                        "description": "card_details"
+                      },
+                      "delayed_capture": {
+                        "type": "boolean",
+                        "description": "delayed_capture"
+                      },
+                      "moto": {
+                        "type": "boolean",
+                        "description": "moto"
+                      },
+                      "fee": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "fee"
+                      },
+                      "net_amount": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "net_amount"
+                      },
+                      "provider_id": {
+                        "type": "string",
+                        "description": "provider_id"
+                      },
+                      "return_url": {
+                        "type": "string",
+                        "description": "return_url"
+                      },
+                      "authorisation_mode": {
+                        "type": "string",
+                        "description": "authorisation_mode"
+                      },
+                      "_links": {
+                        "type": "object",
+                        "properties": {
+                          "self": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": "string",
+                                "description": "href"
+                              },
+                              "method": {
+                                "type": "string",
+                                "description": "method"
+                              }
+                            },
+                            "description": "self"
+                          },
+                          "cancel": {
+                            "type": "string",
+                            "description": "cancel"
+                          },
+                          "events": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": "string",
+                                "description": "href"
+                              },
+                              "method": {
+                                "type": "string",
+                                "description": "method"
+                              }
+                            },
+                            "description": "events"
+                          },
+                          "refunds": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": "string",
+                                "description": "href"
+                              },
+                              "method": {
+                                "type": "string",
+                                "description": "method"
+                              }
+                            },
+                            "description": "refunds"
+                          },
+                          "capture": {
+                            "type": "string",
+                            "description": "capture"
+                          }
+                        },
+                        "description": "_links"
+                      },
+                      "card_brand": {
+                        "type": "string",
+                        "description": "card_brand"
+                      }
+                    }
+                  },
+                  "description": "results"
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        }
+                      },
+                      "description": "self"
+                    },
+                    "first_page": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        }
+                      },
+                      "description": "first_page"
+                    },
+                    "last_page": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        }
+                      },
+                      "description": "last_page"
+                    }
+                  },
+                  "description": "_links"
+                }
+              }
+            }
+          }
+        },
+        "summary": "SCC Get Settled Payments",
+        "description": "Gets settled payments from the GOV.UK Api",
+        "operationId": "SCCSettledPayments",
+        "parameters": [
+          {
+            "name": "to_settled_date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "from_settled_date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/v1/payments/{transactionID}": {
+      "get": {
+        "summary": "SCC Payment Status",
+        "description": "SCC Payment Status",
+        "operationId": "SccPaymentStatus",
+        "parameters": [
+          {
+            "name": "transactionID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "201",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "amount"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "description"
+                },
+                "reference": {
+                  "type": "string",
+                  "description": "reference"
+                },
+                "language": {
+                  "type": "string",
+                  "description": "language"
+                },
+                "metadata": {
+                  "type": "object",
+                  "properties": {
+                    "Business Unit": {
+                      "type": "string",
+                      "description": "Business Unit"
+                    },
+                    "Fund Code": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "Fund Code"
+                    },
+                    "vatCode": {
+                      "type": "string",
+                      "description": "vatCode"
+                    }
+                  },
+                  "description": "metadata"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "email"
+                },
+                "state": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "finished": {
+                      "type": "boolean",
+                      "description": "finished"
+                    }
+                  },
+                  "description": "state"
+                },
+                "payment_id": {
+                  "type": "string",
+                  "description": "payment_id"
+                },
+                "payment_provider": {
+                  "type": "string",
+                  "description": "payment_provider"
+                },
+                "created_date": {
+                  "type": "string",
+                  "description": "created_date"
+                },
+                "refund_summary": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "amount_available": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "amount_available"
+                    },
+                    "amount_submitted": {
+                      "type": "integer",
+                      "format": "int32",
+                      "description": "amount_submitted"
+                    }
+                  },
+                  "description": "refund_summary"
+                },
+                "settlement_summary": {
+                  "type": "object",
+                  "properties": {
+                    "capture_submit_time": {
+                      "type": "string",
+                      "description": "capture_submit_time"
+                    },
+                    "captured_date": {
+                      "type": "string",
+                      "description": "captured_date"
+                    },
+                    "settled_date": {
+                      "type": "string",
+                      "description": "settled_date"
+                    }
+                  },
+                  "description": "settlement_summary"
+                },
+                "card_details": {
+                  "type": "object",
+                  "properties": {
+                    "last_digits_card_number": {
+                      "type": "string",
+                      "description": "last_digits_card_number"
+                    },
+                    "first_digits_card_number": {
+                      "type": "string",
+                      "description": "first_digits_card_number"
+                    },
+                    "cardholder_name": {
+                      "type": "string",
+                      "description": "cardholder_name"
+                    },
+                    "expiry_date": {
+                      "type": "string",
+                      "description": "expiry_date"
+                    },
+                    "billing_address": {
+                      "type": "object",
+                      "properties": {
+                        "line1": {
+                          "type": "string",
+                          "description": "line1"
+                        },
+                        "line2": {
+                          "type": "string",
+                          "description": "line2"
+                        },
+                        "postcode": {
+                          "type": "string",
+                          "description": "postcode"
+                        },
+                        "city": {
+                          "type": "string",
+                          "description": "city"
+                        },
+                        "country": {
+                          "type": "string",
+                          "description": "country"
+                        }
+                      },
+                      "description": "billing_address"
+                    },
+                    "card_brand": {
+                      "type": "string",
+                      "description": "card_brand"
+                    },
+                    "card_type": {
+                      "type": "string",
+                      "description": "card_type"
+                    },
+                    "wallet_type": {
+                      "type": "string",
+                      "description": "wallet_type"
+                    }
+                  },
+                  "description": "card_details"
+                },
+                "delayed_capture": {
+                  "type": "boolean",
+                  "description": "delayed_capture"
+                },
+                "moto": {
+                  "type": "boolean",
+                  "description": "moto"
+                },
+                "fee": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "fee"
+                },
+                "net_amount": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "net_amount"
+                },
+                "provider_id": {
+                  "type": "string",
+                  "description": "provider_id"
+                },
+                "return_url": {
+                  "type": "string",
+                  "description": "return_url"
+                },
+                "authorisation_mode": {
+                  "type": "string",
+                  "description": "authorisation_mode"
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "self"
+                    },
+                    "events": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "events"
+                    },
+                    "refunds": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "refunds"
+                    }
+                  },
+                  "description": "_links"
+                },
+                "card_brand": {
+                  "type": "string",
+                  "description": "card_brand"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/payments/{PaymentID}/refunds": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "refund_id": {
+                  "type": "string",
+                  "description": "refund_id"
+                },
+                "created_date": {
+                  "type": "string",
+                  "description": "created_date"
+                },
+                "amount": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "amount"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status"
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "self"
+                    },
+                    "payment": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        },
+                        "method": {
+                          "type": "string",
+                          "description": "method"
+                        }
+                      },
+                      "description": "payment"
+                    }
+                  },
+                  "description": "_links"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "summary": "Issue Refund",
+        "description": "Requests a refund via the Gov.uk Pay API",
+        "operationId": "SCCRefund",
+        "parameters": [
+          {
+            "name": "PaymentID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "amount"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/v1/refunds": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "total"
+                },
+                "count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "count"
+                },
+                "page": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "page"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "refund_id": {
+                        "type": "string",
+                        "description": "refund_id"
+                      },
+                      "created_date": {
+                        "type": "string",
+                        "description": "created_date"
+                      },
+                      "payment_id": {
+                        "type": "string",
+                        "description": "payment_id"
+                      },
+                      "amount": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "amount"
+                      },
+                      "_links": {
+                        "type": "object",
+                        "properties": {
+                          "self": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": "string",
+                                "description": "href"
+                              },
+                              "method": {
+                                "type": "string",
+                                "description": "method"
+                              }
+                            },
+                            "description": "self"
+                          },
+                          "payment": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": "string",
+                                "description": "href"
+                              },
+                              "method": {
+                                "type": "string",
+                                "description": "method"
+                              }
+                            },
+                            "description": "payment"
+                          }
+                        },
+                        "description": "_links"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "status"
+                      },
+                      "settlement_summary": {
+                        "type": "object",
+                        "properties": {
+                          "settled_date": {
+                            "type": "string",
+                            "description": "settled_date"
+                          }
+                        },
+                        "description": "settlement_summary"
+                      }
+                    }
+                  },
+                  "description": "results"
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        }
+                      },
+                      "description": "self"
+                    },
+                    "first_page": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        }
+                      },
+                      "description": "first_page"
+                    },
+                    "last_page": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        }
+                      },
+                      "description": "last_page"
+                    },
+                    "prev_page": {
+                      "type": "object",
+                      "properties": {},
+                      "description": "prev_page"
+                    },
+                    "next_page": {
+                      "type": "object",
+                      "properties": {},
+                      "description": "next_page"
+                    }
+                  },
+                  "description": "_links"
+                }
+              }
+            }
+          }
+        },
+        "summary": "SCC Get Refunds",
+        "description": "Gets refunds for a given date from Gov.uk Pay",
+        "operationId": "SCCGetRefunds",
+        "parameters": [
+          {
+            "name": "from_settled_date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "to_settled_date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "display_size",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "Content-type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/v1/disputes": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "total"
+                },
+                "count": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "count"
+                },
+                "page": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "page"
+                },
+                "results": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "amount": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "amount"
+                      },
+                      "fee": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "fee"
+                      },
+                      "reason": {
+                        "type": "string",
+                        "description": "reason"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "status"
+                      },
+                      "created_date": {
+                        "type": "string",
+                        "description": "created_date"
+                      },
+                      "dispute_id": {
+                        "type": "string",
+                        "description": "dispute_id"
+                      },
+                      "evidence_due_date": {
+                        "type": "string",
+                        "description": "evidence_due_date"
+                      },
+                      "net_amount": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "net_amount"
+                      },
+                      "payment_id": {
+                        "type": "string",
+                        "description": "payment_id"
+                      },
+                      "settlement_summary": {
+                        "type": "object",
+                        "properties": {
+                          "settled_date": {
+                            "type": "string",
+                            "description": "settled_date"
+                          }
+                        },
+                        "description": "settlement_summary"
+                      },
+                      "_links": {
+                        "type": "object",
+                        "properties": {
+                          "payment": {
+                            "type": "object",
+                            "properties": {
+                              "href": {
+                                "type": "string",
+                                "description": "href"
+                              },
+                              "method": {
+                                "type": "string",
+                                "description": "method"
+                              }
+                            },
+                            "description": "payment"
+                          }
+                        },
+                        "description": "_links"
+                      }
+                    }
+                  },
+                  "description": "results"
+                },
+                "links": {
+                  "type": "object",
+                  "properties": {
+                    "self": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        }
+                      },
+                      "description": "self"
+                    },
+                    "first_page": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        }
+                      },
+                      "description": "first_page"
+                    },
+                    "last_page": {
+                      "type": "object",
+                      "properties": {
+                        "href": {
+                          "type": "string",
+                          "description": "href"
+                        }
+                      },
+                      "description": "last_page"
+                    },
+                    "prev_page": {
+                      "type": "object",
+                      "properties": {},
+                      "description": "prev_page"
+                    },
+                    "next_page": {
+                      "type": "object",
+                      "properties": {},
+                      "description": "next_page"
+                    }
+                  },
+                  "description": "links"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Settled Disputes and Chargebacks",
+        "description": "Search for disputes/chargebacks where bank has recalled the funds.",
+        "operationId": "SccDisputesChargebacks",
+        "parameters": [
+          {
+            "name": "from_settled_date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "to_settled_date",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "API Key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
+    }
+  },
+  "security": [
+    {
+      "API Key": []
+    }
+  ],
+  "tags": []
+}

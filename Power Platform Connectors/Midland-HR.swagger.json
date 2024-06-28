@@ -1,0 +1,197 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "iTrent",
+    "description": "Custom connector allowing data ingestion into iTrent and status checking for imports. LIVE environment.",
+    "version": "1.0"
+  },
+  "host": "itrent-data-conversion.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/api/check_conversion_status": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "return": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "return"
+                },
+                "P_STATUS": {
+                  "type": "string",
+                  "description": "P_STATUS"
+                },
+                "P_ERROR_MSG": {
+                  "type": "string",
+                  "description": "P_ERROR_MSG"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get Data Conversion Status",
+        "description": "Returns the status for a given iTrent \"P_Queue_Id\" returned from a valid data conversion and ingestion request.",
+        "operationId": "GetConversionStatus",
+        "parameters": [
+          {
+            "name": "itrentQueueId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/Api/Execute_New_Conversion": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "return": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "return"
+                },
+                "P_LOG_FILE": {
+                  "type": "string",
+                  "description": "P_LOG_FILE"
+                },
+                "P_EXC_FILE": {
+                  "type": "string",
+                  "description": "P_EXC_FILE"
+                },
+                "P_SUC_FILE": {
+                  "type": "string",
+                  "description": "P_SUC_FILE"
+                },
+                "P_QUEUE_ID": {
+                  "type": "string",
+                  "description": "P_QUEUE_ID"
+                },
+                "P_ERROR_MSG": {
+                  "type": "string",
+                  "description": "P_ERROR_MSG"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Execute data conversion",
+        "description": "Executes a new data conversion import into iTrent by sending CSV data for a given iTrent Operation. Refer to iTrent Documentation",
+        "operationId": "ExecuteDataConversion",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "itrentOperation": {
+                  "type": "string",
+                  "description": "itrentOperation"
+                },
+                "itrentPayload": {
+                  "type": "string",
+                  "description": "itrentPayload"
+                },
+                "itrentOrg": {
+                  "type": "string",
+                  "description": "itrentOrg"
+                },
+                "itrentDataIdentifier": {
+                  "type": "string",
+                  "description": "itrentDataIdentifier"
+                },
+                "fileSeperator": {
+                  "type": "string",
+                  "description": "fileSeperator"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/api/check_conversion_logs": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "return": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "return"
+                },
+                "P_STATUS": {
+                  "type": "string",
+                  "description": "P_STATUS"
+                },
+                "P_LOG_FILE_DATA": {
+                  "type": "string",
+                  "description": "P_LOG_FILE_DATA"
+                },
+                "P_EXC_FILE_DATA": {
+                  "type": "string",
+                  "description": "P_EXC_FILE_DATA"
+                },
+                "P_SUC_FILE_DATA": {
+                  "type": "string",
+                  "description": "P_SUC_FILE_DATA"
+                },
+                "P_ERROR_MSG": {
+                  "type": "string",
+                  "description": "P_ERROR_MSG"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "summary": "Get Data Conversion Logs",
+        "description": "Returns Log informaton for itrent Data Conversions for a given P_QUEUE_ID",
+        "operationId": "GetConversionLogs",
+        "parameters": [
+          {
+            "name": "itrentQueueId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-functions-key"
+    }
+  },
+  "security": [],
+  "tags": []
+}

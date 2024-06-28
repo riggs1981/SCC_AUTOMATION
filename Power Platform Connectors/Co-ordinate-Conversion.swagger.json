@@ -1,0 +1,141 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Co-Ordinate Converter",
+    "description": "Co-Ordinate Converter"
+  },
+  "host": "coordinateconversion20230327.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/BNGToLatLong": {
+      "post": {
+        "summary": "BNG to LatLong",
+        "description": "BNG to LatLong",
+        "operationId": "BngToLatlong",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "x"
+                },
+                "y": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "y"
+                }
+              },
+              "default": {
+                "x": 435767.29,
+                "y": 385326.66
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "latitude": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "latitude"
+                },
+                "longitude": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "longitude"
+                },
+                "elipsoidalHeight": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "elipsoidalHeight"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/LatLontoBNG": {
+      "post": {
+        "summary": "LatLong to BNG",
+        "description": "LatLong to BNG",
+        "operationId": "LatlongToBng",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "lon": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "lon"
+                },
+                "lat": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "lat"
+                }
+              },
+              "default": {
+                "lon": -1.463988498727653,
+                "lat": 53.363607992066896
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "easting": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "easting"
+                },
+                "northing": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "northing"
+                },
+                "height": {
+                  "type": "number",
+                  "format": "float",
+                  "description": "height"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}
